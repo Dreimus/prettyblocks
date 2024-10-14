@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Copyright (c) Since 2020 PrestaSafe and contributors
  *

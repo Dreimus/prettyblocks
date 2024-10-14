@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Copyright (c) Since 2020 PrestaSafe and contributors
  *
@@ -24,10 +26,10 @@ if (!defined('_PS_VERSION_')) {
 /**
  * @param prettyblocks $module
  *
- * @return bool|string
- *
  * @throws PrestaShopDatabaseException
  * @throws PrestaShopException
+ *
+ * @return bool|string
  */
 function upgrade_module_3_0_7($module)
 {

@@ -1,0 +1,30 @@
+services:
+  _defaults:
+    public: true
+    autoconfigure: true
+    autowire: true
+
+  #Resources
+  PrestaSafe\PrettyBlocks\:
+    resource: '../src'
+    exclude:
+      - '../src/{Collection,Controller,Exception,Entity,Repository,Install,Resources,index.php}'
+      - '../src/DependencyInjection/*'
+      - '../src/*/index.php'
+
+  PrestaSafe\PrettyBlocks\Controller\Admin\EditionController:
+    class: PrestaSafe\PrettyBlocks\Controller\Admin\EditionController
+    arguments:
+      - '@translator'
+      - '@prestashop.adapter.shop.context'
+    tags:
+      - { name: controller.service_arguments }
+
+  PrestaSafe\PrettyBlocks\Controller\Api\FieldController:
+    tags:
+      - { name: container.service_subscriber }
+      - { name: kernel.event_subscriber }
+
+  PrestaSafe\PrettyBlocks\Controller\Api\ZoneController:
+    tags:
+      - { name: container.service_subscriber }

@@ -1,0 +1,180 @@
+[
+  {
+    "id": "dfbfe93a-526a-473f-bd6f-854c038a55b2",
+    "component_id": "prestasafe_prettyblocks_fieldtype_element_component_menu_simplemenu",
+    "type": "component",
+    "label": "Quick Menu",
+    "optional": false,
+    "hidden": false,
+    "fields": [
+      {
+        "id": "af6b0e68-7fad-4c4a-86ee-2764e71ec884",
+        "component_id": "prestasafe_prettyblocks_fieldtype_element_component_menu_simplemenuitem",
+        "type": "repeater",
+        "label": "Menu Item List",
+        "optional": false,
+        "hidden": false,
+        "sub_elements": [
+          {
+            "id": "c33cbe08-393b-4f34-a26d-aaa584ff4ba5",
+            "component_id": "prestasafe_prettyblocks_fieldtype_element_component_menu_simplemenuitem",
+            "type": "component",
+            "label": "Menu Item List",
+            "optional": false,
+            "hidden": false,
+            "fields": [
+              {
+                "id": "28dd3d68-343c-4088-b598-c368e9a09f8b",
+                "structureId": "prestasafe_prettyblocks_fieldtype_primitive_linkprimitivefieldtype",
+                "type": "link",
+                "label": "Link",
+                "content": {
+                  "label": "Link text",
+                  "href": "https:\/\/www.example.com"
+                },
+                "optional": false,
+                "hidden": false
+              },
+              {
+                "id": "758ffd7e-bac7-41f8-b69c-ca34842455b6",
+                "structureId": "prestasafe_prettyblocks_fieldtype_primitive_checkboxprimitivefieldtype",
+                "type": "checkbox",
+                "label": "Highlighted",
+                "content": {
+                  "value": false
+                },
+                "optional": false,
+                "hidden": false
+              }
+            ]
+          },
+          {
+            "id": "5a5dc933-630d-4582-a897-e20285cb1c95",
+            "component_id": "prestasafe_prettyblocks_fieldtype_element_component_menu_simplemenuitem",
+            "type": "component",
+            "label": "Menu Item List",
+            "optional": false,
+            "hidden": false,
+            "fields": [
+              {
+                "id": "1e09c8de-3efa-4e1c-b78b-15f0fb351436",
+                "structureId": "prestasafe_prettyblocks_fieldtype_primitive_linkprimitivefieldtype",
+                "type": "link",
+                "label": "Link",
+                "content": {
+                  "label": "Link text",
+                  "href": "https:\/\/www.example.com"
+                },
+                "optional": false,
+                "hidden": false
+              },
+              {
+                "id": "d2d83294-2411-484a-9dc0-422921893769",
+                "structureId": "prestasafe_prettyblocks_fieldtype_primitive_checkboxprimitivefieldtype",
+                "type": "checkbox",
+                "label": "Highlighted",
+                "content": {
+                  "value": false
+                },
+                "optional": false,
+                "hidden": false
+              }
+            ]
+          },
+          {
+            "id": "92c35500-0fb2-4f3a-8428-f41a9534ba66",
+            "component_id": "prestasafe_prettyblocks_fieldtype_element_component_menu_simplemenuitem",
+            "type": "component",
+            "label": "Menu Item List",
+            "optional": false,
+            "hidden": false,
+            "fields": [
+              {
+                "id": "63ffd5fc-75c5-4e2b-8954-0fa07e7b120c",
+                "structureId": "prestasafe_prettyblocks_fieldtype_primitive_linkprimitivefieldtype",
+                "type": "link",
+                "label": "Link",
+                "content": {
+                  "label": "Link text",
+                  "href": "https:\/\/www.example.com"
+                },
+                "optional": false,
+                "hidden": false
+              },
+              {
+                "id": "20ed3dec-44d8-4b34-a606-07cf47654499",
+                "structureId": "prestasafe_prettyblocks_fieldtype_primitive_checkboxprimitivefieldtype",
+                "type": "checkbox",
+                "label": "Highlighted",
+                "content": {
+                  "value": false
+                },
+                "optional": false,
+                "hidden": false
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "163cf937-001d-4342-95de-e52f1c524921",
+    "structureId": "prestasafe_prettyblocks_fieldtype_primitive_textprimitivefieldtype",
+    "type": "text",
+    "label": "Menu button text",
+    "content": {
+      "value": ""
+    },
+    "optional": false,
+    "hidden": false
+  },
+  {
+    "id": "32742c5e-b04e-40cb-9dae-9bd7103b8702",
+    "component_id": "prestasafe_prettyblocks_fieldtype_element_component_menu_sidebarmenu",
+    "type": "component",
+    "label": "Sidebar Menu",
+    "optional": false,
+    "hidden": false,
+    "fields": [
+      {
+        "id": "ae2b9885-5a4e-4d4e-92c8-84822d6ae3f4",
+        "component_id": "prestasafe_prettyblocks_fieldtype_element_component_menu_expandablemenu",
+        "type": "component",
+        "label": "Expandable Menu",
+        "optional": false,
+        "hidden": false,
+        "fields": [
+          {
+            "id": "ffb5aaee-abf2-4e5b-b1d0-9d06d720182c",
+            "component_id": "prestasafe_prettyblocks_fieldtype_element_component_menu_expandablemenuitem",
+            "type": "repeater",
+            "label": "Menu item",
+            "optional": false,
+            "hidden": false,
+            "sub_elements": []
+          }
+        ]
+      },
+      {
+        "id": "6471fa1e-b116-4171-99fe-90d3dc24b1e4",
+        "component_id": "prestasafe_prettyblocks_fieldtype_element_component_menu_simplemenu",
+        "type": "component",
+        "label": "Sidebar footer menu",
+        "optional": false,
+        "hidden": false,
+        "fields": [
+          {
+            "id": "b9211e52-ae40-4bd1-99d7-415a7b9eb673",
+            "component_id": "prestasafe_prettyblocks_fieldtype_element_component_menu_simplemenuitem",
+            "type": "repeater",
+            "label": "Menu Item List",
+            "optional": false,
+            "hidden": false,
+            "sub_elements": []
+          }
+        ]
+      }
+    ]
+  }
+]

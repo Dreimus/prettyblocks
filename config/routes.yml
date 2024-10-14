@@ -1,91 +1,67 @@
-admin_prettyblocks:
-  path: prettyblocks/
-  methods: [GET,POST]
+# routes.yml
+
+prettyblocks_admin_index:
+  path: /prettyblocks/admin
+  methods: [ GET ]
   defaults:
-    _controller: 'PrestaSafe\PrettyBlocks\Controller\AdminThemeManagerController::indexAction'
-    _legacy_controller: AdminThemeManagerController
-    _legacy_link: AdminThemeManagerController
+    _controller: PrestaSafe\PrettyBlocks\Controller\Admin\EditionController::indexAction
+    _legacy_controller: PrettyBlocksAdminEdition
+    _legacy_link: PrettyBlocksAdminEdition
 
-prettyblocks_block_render:
-  path: prettyblocks/block/
-  methods: [GET,POST]
+prettyblocks_admin_edit:
+  path: /prettyblocks/admin/edit
+  methods: [ GET ]
   defaults:
-    _controller: 'PrestaSafe\PrettyBlocks\Controller\AdminThemeManagerController::renderBlockAction'
-    _legacy_controller: AdminThemeManagerController
-    _legacy_link: AdminThemeManagerController
+      _controller: PrestaSafe\PrettyBlocks\Controller\Admin\EditionController::editAction
+      _legacy_controller: PrettyBlocksAdminEdition
+      _legacy_link: PrettyBlocksAdminEdition
 
-
-prettyblocks_api:
-  path: prettyblocks/api/
-  methods: [GET,POST]
+prettyblocks_zone_list:
+  path: /prettyblocks/api/zones
+  methods: [ GET ]
   defaults:
-    _controller: 'PrestaSafe\PrettyBlocks\Controller\AdminThemeManagerController::testAction'
-    _legacy_controller: AdminThemeManagerController
-    _legacy_link: AdminThemeManagerController
+    _controller: PrestaSafe\PrettyBlocks\Controller\Api\ZoneController:listZones
+    _legacy_controller: PrettyBlocksApiZone
+    _legacy_link: PrettyBlocksApiZone
 
-# Get collection
-prettyblocks_collection:
-  path: prettyblocks/collection/
-  methods: [GET,POST]
+prettyblocks_zone_get:
+  path: /prettyblocks/api/zones/{id}
+  methods: [ GET ]
   defaults:
-    _controller: 'PrestaSafe\PrettyBlocks\Controller\AdminThemeManagerController::getCollectionAction'
-    _legacy_controller: AdminThemeManagerControllerGetCollectionAction
-    _legacy_link: AdminThemeManagerControllerGetCollectionAction
+    _controller: PrestaSafe\PrettyBlocks\Controller\Api\ZoneController:getZone
+    _legacy_controller: PrettyBlocksApiZone
+    _legacy_link: PrettyBlocksApiZone
 
-
-# Upload for DropZone
-prettyblocks_upload:
-  path: prettyblocks/upload/
-  methods: [POST,GET]
+prettyblocks_zone_fields:
+  path: /prettyblocks/api/zones/{id}/fields
+  methods: [ GET ]
   defaults:
-    _controller: 'PrestaSafe\PrettyBlocks\Controller\AdminThemeManagerController::uploadAction'
-    _legacy_controller: AdminThemeManagerControllerUploadAction
-    _legacy_link: AdminThemeManagerControllerUploadAction
+    _controller: PrestaSafe\PrettyBlocks\Controller\Api\ZoneController:getZoneFields
+    _legacy_controller: PrettyBlocksApiZone
+    _legacy_link: PrettyBlocksApiZone
 
-
-# get block state
-prettyblocks_api_get_state:
-  path: prettyblocks/get_state/
-  methods: [GET,POST]
+prettyblocks_zone_update:
+  path: /prettyblocks/api/zones/{id}
+  methods: [ PUT ]
   defaults:
-    _controller: 'PrestaSafe\PrettyBlocks\Controller\AdminThemeManagerController::getState'
-    _legacy_controller: AdminThemeManagerController
-    _legacy_link: AdminThemeManagerController
+    _controller: PrestaSafe\PrettyBlocks\Controller\Api\ZoneController:updateZone
+    _legacy_controller: PrettyBlocksApiZone
+    _legacy_link: PrettyBlocksApiZone
 
-# get blocks available
-prettyblocks_api_get_blocks_available:
-  path: prettyblocks/get_blocks_available/
-  methods: [GET,POST]
+prettyblocks_media_upload:
+  path: /prettyblocks/api/media/upload
+  methods: [ POST ]
   defaults:
-    _controller: 'PrestaSafe\PrettyBlocks\Controller\AdminThemeManagerController::getBlocksAvailableAction'
-    _legacy_controller: AdminThemeManagerController
-    _legacy_link: AdminThemeManagerController
+    _controller: PrestaSafe\PrettyBlocks\Controller\Api\MediaController:uploadMedia
+    _legacy_controller: PrettyBlocksApiMedia
+    _legacy_link: PrettyBlocksApiMedia
 
-
-
-prettyblocks_homesimulator:
-  path: prettyblocks/homesimulator/
-  methods: [GET,POST]
+prettyblocks_field_list:
+  path: /prettyblocks/api/fields
+  methods: [ GET ]
   defaults:
-    _controller: 'PrestaSafe\PrettyBlocks\Controller\AdminThemeManagerController::homeSimulator'
-    _legacy_controller: AdminThemeManagerControllerHomeSimulator
-    _legacy_link: AdminThemeManagerControllerHomeSimulator
+    _controller: PrestaSafe\PrettyBlocks\Controller\Api\FieldController:listAction
+    _legacy_controller: PrettyBlocksApiField
+    _legacy_link: PrettyBlocksApiField
 
 
-admin_prettyblocks_test:
-  path: prettyblocks/test/
-  methods: [GET,POST]
-  defaults:
-    _controller: 'PrestaSafe\PrettyBlocks\Controller\AdminThemeManagerController::testAction'
-    _legacy_controller: AdminThemeManagerController
-    _legacy_link: AdminThemeManagerController
-
-
-#get gobals settings
-prettyblocks_theme_settings:
-  path: prettyblocks/get_theme_settings/
-  methods: [GET,POST]
-  defaults:
-    _controller: 'PrestaSafe\PrettyBlocks\Controller\AdminThemeManagerController::getSettingsAction'
-    _legacy_controller: AdminThemeManagerController
-    _legacy_link: AdminThemeManagerController

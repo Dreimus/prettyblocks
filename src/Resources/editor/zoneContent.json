@@ -1,0 +1,134 @@
+[
+  {
+    "id": "fc537018-9c76-4445-bb58-0a9a1f03a231",
+    "block_id": "prestasafe_prettyblocks_fieldtype_element_block_preheader",
+    "label": "Contenu de l'entête",
+    "type": "block",
+    "fields": [
+      {
+        "id": "a08a9faa-1122-4d04-b9f3-03330727c809",
+        "structureId": "prestasafe_prettyblocks_fieldtype_primitive_textprimitivefieldtype",
+        "type": "text",
+        "label": "Contact Phone",
+        "content": {
+          "value": ""
+        },
+        "optional": false,
+        "hidden": false
+      }
+    ]
+  },
+  {
+    "id": "f04f844e-0ab0-4ae4-8474-5ba00a848607",
+    "block_id": "prestasafe_prettyblocks_fieldtype_element_block_navigationmenu",
+    "label": "Navigation Menu",
+    "type": "block",
+    "fields": [
+      {
+        "id": "b904643b-8a7e-417f-9999-ee0c807ff8a7",
+        "component_id": "prestasafe_prettyblocks_fieldtype_element_component_menu_simplemenu",
+        "type": "component",
+        "label": "Quick Menu",
+        "optional": false,
+        "hidden": false,
+        "fields": [
+          {
+            "id": "38ede4d1-f7fd-4910-aead-3248a2acd175",
+            "component_id": "prestasafe_prettyblocks_fieldtype_element_component_menu_simplemenuitem",
+            "type": "repeater",
+            "label": "Menu Item List",
+            "optional": false,
+            "hidden": false,
+            "sub_elements": []
+          }
+        ]
+      },
+      {
+        "id": "b02a389e-0ddc-4bd4-9144-7a6887ac254b",
+        "structureId": "prestasafe_prettyblocks_fieldtype_primitive_textprimitivefieldtype",
+        "type": "text",
+        "label": "Menu button text",
+        "content": {
+          "value": ""
+        },
+        "optional": false,
+        "hidden": false
+      },
+      {
+        "id": "9efcf174-e69b-4788-9dab-6adeac10dee1",
+        "component_id": "prestasafe_prettyblocks_fieldtype_element_component_menu_sidebarmenu",
+        "type": "component",
+        "label": "Sidebar Menu",
+        "optional": false,
+        "hidden": false,
+        "fields": [
+          {
+            "id": "51f73470-ccf5-48f3-a26d-2a6114939e84",
+            "component_id": "prestasafe_prettyblocks_fieldtype_element_component_menu_expandablemenu",
+            "type": "component",
+            "label": "Expandable Menu",
+            "optional": false,
+            "hidden": false,
+            "fields": [
+              {
+                "id": "f75979b0-b524-404f-851d-9b7f92fb7ad8",
+                "component_id": "prestasafe_prettyblocks_fieldtype_element_component_menu_expandablemenuitem",
+                "type": "repeater",
+                "label": "Menu item",
+                "optional": false,
+                "hidden": false,
+                "sub_elements": []
+              }
+            ]
+          },
+          {
+            "id": "f16f8b33-3357-4c0e-ae62-8130dc0fd261",
+            "component_id": "prestasafe_prettyblocks_fieldtype_element_component_menu_simplemenu",
+            "type": "component",
+            "label": "Sidebar footer menu",
+            "optional": false,
+            "hidden": false,
+            "fields": [
+              {
+                "id": "69ccb466-00ba-41c2-9042-5b197f6c9992",
+                "component_id": "prestasafe_prettyblocks_fieldtype_element_component_menu_simplemenuitem",
+                "type": "repeater",
+                "label": "Menu Item List",
+                "optional": false,
+                "hidden": false,
+                "sub_elements": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "e5d1faa8-5316-4af9-b550-e493c010d53a",
+    "block_id": "prestasafe_prettyblocks_fieldtype_element_block_promotionslider",
+    "label": "Promotion Slider",
+    "type": "block",
+    "fields": [
+      {
+        "id": "434ece00-e925-498d-8875-ffc6dab995d6",
+        "component_id": "prestasafe_prettyblocks_fieldtype_element_component_slider_textslider",
+        "type": "component",
+        "label": "Slider",
+        "optional": false,
+        "hidden": false,
+        "fields": [
+          {
+            "id": "59cd1c1c-5cc9-41f0-b8e4-a6ceeb48a364",
+            "component_id": "prestasafe_prettyblocks_fieldtype_element_component_slider_textslideritem",
+            "type": "repeater",
+            "label": "Slides",
+            "optional": false,
+            "hidden": false,
+            "sub_elements": []
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PrettyBlocks Editor</title>
+
+  <script content="text/javascript">
+    window.prettyblocks = {{ prettyblocks|json_encode()|raw }}
+    window.base_url = "{{ base_url }}"
+    window.favicon_url = "{{ favicon_url }}"
+    window.module_name = "{{ module_name }}"
+    window.shop_name = "{{ shop_name }}"
+    window.env = {{ env|json_encode()|raw }}
+    window.ajax_urls = {{ ajax_urls|json_encode()|raw }}
+    window.trans_app = {{ trans_app|json_encode()|raw }}
+    window.security_app = {{ security_app|json_encode()|raw }}
+</script>
+
+  <script type="module" crossorigin src="/modules/prettyblocks/src/Resources/public/prettyblocks_editor.js"></script>
+  <link rel="stylesheet" href="/modules/prettyblocks/src/Resources/public/prettyblocks_editor.css">
+</head>
+<body>
+
+<div id="app"></div>
+
+</body>
+</html>
