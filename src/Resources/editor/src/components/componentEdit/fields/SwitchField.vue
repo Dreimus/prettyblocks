@@ -1,11 +1,14 @@
 <template>
   <div class="switch">
-    <div
-      class="switchContainer"
-      :class="value.value ? 'activated' : ''"
-      @click="() => onChange(!value.value)"
-    >
-      <div class="switchToggle" />
+    <label class="label">Activer ?</label>
+    <div>
+      <div
+        class="switchContainer"
+        :class="value.value ? 'activated' : ''"
+        @click="() => onChange(!value.value)"
+      >
+        <div class="switchToggle" />
+      </div>
     </div>
   </div>
 </template>

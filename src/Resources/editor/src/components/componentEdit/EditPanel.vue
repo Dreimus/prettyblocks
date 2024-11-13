@@ -38,6 +38,7 @@
         v-if="otherSubfields.length > 0"
       >
         <h3>Champs</h3>
+        <hr>
         <EditField v-for="field in otherSubfields" :field="field" />
       </div>
     </div>

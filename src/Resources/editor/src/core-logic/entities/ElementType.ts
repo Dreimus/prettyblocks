@@ -3,7 +3,7 @@ export enum PrimitiveFieldType {
   NUMBER = "number",
   RANGE = "range",
   TEXT = "text",
-  TEXT_AREA = "textArea",
+  TEXT_AREA = "textarea",
   PASSWORD = "password",
   EMAIL = "email",
   URL = "url",

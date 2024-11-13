@@ -5,10 +5,10 @@
       @click="switchComponent"
       class="componentLink"
     >
-      {{ field.label }}
+      <div class="primitiveFieldLabel">{{ field.label }}</div>
     </div>
     <div v-else-if="field.type === 'repeater'" class="repeaterField">
-      {{ field.label }}
+      <div class="primitiveFieldLabel">{{ field.label }}</div>
       <div
         v-if="field.sub_elements[0]?.type === 'component'"
         class="repeatedElements"
@@ -33,7 +33,7 @@
       </div>
     </div>
     <div v-else>
-      {{ field.label }}
+      <div class="primitiveFieldLabel">{{ field.label }}</div>
       <EditPrimitiveField :field="field" />
     </div>
   </div>
@@ -102,5 +102,11 @@ const addNewElement = (element) => {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+}
+
+.primitiveFieldLabel {
+  margin-top: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
 }
 </style>

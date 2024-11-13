@@ -1,22 +1,22 @@
 <template>
   <div class="linkInput">
-    <span> Label </span>
+    <label class="label"> Label </label>
     <input
       ref="labelRef"
       type="text"
       :value="value.label"
       @change="onChange"
       @keyup.enter="onChange"
-      class="input"
+      class="input sm:text-sm/6"
     />
-    <span> Url </span>
+    <label class="label"> Url </label>
     <input
       ref="hrefRef"
       type="text"
       :value="value.href"
       @change="onChange"
       @keyup.enter="onChange"
-      class="input"
+      class="input sm:text-sm/6"
     />
   </div>
 </template>

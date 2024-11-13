@@ -22,6 +22,7 @@ import UrlField from "./fields/UrlField.vue";
 import WysiwygField from "./fields/WysiwygField.vue";
 import {useZoneStore} from "../../core-logic/store/zoneStore";
 import SwitchField from "./fields/SwitchField.vue";
+import TextAreaField from "./fields/TextAreaField.vue";
 
 const { field } = defineProps<{
   field: PrimitiveFieldContent<PrimitiveFieldType>;
@@ -37,6 +38,7 @@ type ComponentMap<T extends PrimitiveFieldType> = {
 };
 const componentMap: ComponentMap<PrimitiveFieldType> = {
   [PrimitiveFieldType.TEXT]: TextField,
+  [PrimitiveFieldType.TEXT_AREA]: TextAreaField,
   [PrimitiveFieldType.NUMBER]: NumberField,
   [PrimitiveFieldType.RANGE]: RangeField,
   [PrimitiveFieldType.WYSIWYG]: WysiwygField,
@@ -52,7 +54,7 @@ const componentMap: ComponentMap<PrimitiveFieldType> = {
 
 <style scoped lang="scss">
 .primitiveFieldInput {
-  width: 100%;
-  max-width: 100%;
+  grid-template-columns: 5rem 1fr;
+  display: grid;
 }
 </style>
