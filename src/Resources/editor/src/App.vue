@@ -7,7 +7,6 @@ import {fetchAvailableZones} from "./core-logic/usecases/fetchAvailableZones";
 onMounted(() => {
 
   fetchAvailableZones();
-  fetchAvailableBlocks();
 
 });
 

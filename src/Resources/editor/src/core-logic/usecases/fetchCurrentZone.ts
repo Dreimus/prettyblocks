@@ -1,5 +1,6 @@
 import {useZoneStore} from "../store/zoneStore";
 import {fetchZoneContent} from "./fetchZoneContent";
+import {fetchAvailableBlocks} from "./fetchAvailableBlocks";
 
 export const fetchCurrentZone = () => {
 
@@ -14,5 +15,6 @@ export const fetchCurrentZone = () => {
     });
   }
 
+  fetchAvailableBlocks();
   fetchZoneContent(zoneStore.selectedZoneId);
 }

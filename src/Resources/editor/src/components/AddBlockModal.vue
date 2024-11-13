@@ -17,7 +17,7 @@
         class="overflow-y-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-5"
       >
         <div v-for="block in availableBlocks">
-          <span @click="() => addBlock(block.id)">{{ block.label }}</span>
+          <div @click="() => addBlock(block.id)" class="w-full cursor-pointer rounded-md bg-gray-50 px-2 py-2 text-md hover:bg-black hover:text-white font-medium text-gray-600 ring-1 ring-inset">{{ block.label }}</div>
         </div>
       </div>
       <!-- Footer -->

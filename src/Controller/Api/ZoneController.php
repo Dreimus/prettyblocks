@@ -94,8 +94,6 @@ class ZoneController extends AbstractController
         switch ($id) {
             case '1': // sur entête
                 $this->fieldTypeRegistry->add(PreHeader::class);
-                $this->fieldTypeRegistry->add(NavigationMenu::class);
-                $this->fieldTypeRegistry->add(PromotionSlider::class);
                 break;
             case '2': // entête
                 $this->fieldTypeRegistry->add(NavigationMenu::class);
@@ -168,7 +166,6 @@ class ZoneController extends AbstractController
             }
         }
 
-        // Supprimer les blocs qui ne sont plus présents dans le JSON
         foreach ($zone->getBlocks()->toArray() as $existingBlock) {
             if (!in_array($existingBlock->getBlockId(), $newBlockIds, true)) {
                 $zone->removeBlock($existingBlock);
