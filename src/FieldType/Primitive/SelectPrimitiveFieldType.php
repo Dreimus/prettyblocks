@@ -41,7 +41,9 @@ class SelectPrimitiveFieldType extends AbstractPrimitiveFieldType
 
     public function setOptions(array $options): self
     {
-        $this->options = $options;
+        foreach ($options as $value => $label) {
+            $this->addOption($value, $label);
+        }
 
         return $this;
     }

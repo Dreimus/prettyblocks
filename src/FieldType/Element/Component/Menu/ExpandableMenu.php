@@ -18,7 +18,7 @@ class ExpandableMenu extends AbstractComponentFieldType
     {
         return new FieldTypeCollection([
             (new ExpandableMenuItem())
-                ->setLabel('Menu item')
+                ->setLabel('Menu item(s)')
                 ->setRequired(true),
         ]);
     }
