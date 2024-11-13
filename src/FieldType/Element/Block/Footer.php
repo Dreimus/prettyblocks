@@ -23,16 +23,26 @@ class Footer extends AbstractBlockFieldType
             (new TextAreaPrimitiveFieldType())
                 ->setLabel('Seo description')
                 ->setRequired(true),
-            (new TextAreaPrimitiveFieldType())
-                ->setLabel('Les + de Raviday - Titre')
+            (new TextPrimitiveFieldType())
+                ->setLabel('Raviday + - Title')
                 ->setRequired(true),
             (new TextAreaPrimitiveFieldType())
-                ->setLabel('Les + de Raviday - Contenu')
+                ->setLabel('Raviday + - Content')
                 ->setRequired(true),
             (new TextPrimitiveFieldType())
-                ->setLabel('Nos Produits - Titre')
+                ->setLabel('Our Products - Title')
                 ->setRequired(true)
-                ->setDefaultValue('Nos produits'),
+                ->setDefaultValue('Our Products'),
+            (new SimpleMenu())
+                ->setLabel('Our Products - Menu')
+                ->setRequired(true),
+            (new TextPrimitiveFieldType())
+                ->setLabel('Useful Links - Title')
+                ->setRequired(true)
+                ->setDefaultValue('Useful Links'),
+            (new SimpleMenu())
+                ->setLabel('Useful Links - Menu')
+                ->setRequired(true),
         ]);
     }
 

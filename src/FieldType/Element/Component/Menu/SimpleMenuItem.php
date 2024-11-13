@@ -8,7 +8,10 @@ use PrestaSafe\PrettyBlocks\Collection\FieldTypeCollection;
 use PrestaSafe\PrettyBlocks\FieldType\Element\Component\AbstractComponentFieldType;
 use PrestaSafe\PrettyBlocks\FieldType\Primitive\CheckboxPrimitiveFieldType;
 use PrestaSafe\PrettyBlocks\FieldType\Primitive\LinkPrimitiveFieldType;
+use PrestaSafe\PrettyBlocks\FieldType\Primitive\PrestashopLinkSelectPrimitiveFieldType;
 use PrestaSafe\PrettyBlocks\FieldType\Primitive\SwitchPrimitiveFieldType;
+use PrestaShopCollection;
+use Product;
 
 class SimpleMenuItem extends AbstractComponentFieldType
 {
@@ -20,7 +23,7 @@ class SimpleMenuItem extends AbstractComponentFieldType
     public function getFields(): FieldTypeCollection
     {
         return new FieldTypeCollection([
-            (new LinkPrimitiveFieldType())
+            (new PrestashopLinkSelectPrimitiveFieldType())
                 ->setLabel('Link')
                 ->setRequired(true),
             (new SwitchPrimitiveFieldType())
@@ -33,4 +36,5 @@ class SimpleMenuItem extends AbstractComponentFieldType
     {
         return 'Item(s)';
     }
+
 }
