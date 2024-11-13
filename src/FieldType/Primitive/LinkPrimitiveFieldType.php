@@ -11,11 +11,6 @@ class LinkPrimitiveFieldType extends AbstractPrimitiveFieldType
         return 'link';
     }
 
-    public function getDefaultValue(): mixed
-    {
-        return null;
-    }
-
     public function getDefault(): array
     {
         return [

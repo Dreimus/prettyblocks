@@ -8,15 +8,11 @@ class RangePrimitiveFieldType extends AbstractPrimitiveFieldType
 {
     protected int $min;
     protected int $max;
+    protected mixed $defaultValue = 0;
 
     public function getType(): string
     {
         return 'range';
-    }
-
-    public function getDefaultValue(): mixed
-    {
-        return 0;
     }
 
     public function getDefault(): array

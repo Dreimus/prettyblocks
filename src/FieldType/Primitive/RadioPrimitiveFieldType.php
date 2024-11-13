@@ -6,6 +6,7 @@ namespace PrestaSafe\PrettyBlocks\FieldType\Primitive;
 
 class RadioPrimitiveFieldType extends AbstractPrimitiveFieldType
 {
+    protected mixed $defaultValue = '';
     protected array $options;
 
     public function getType(): string
@@ -13,10 +14,6 @@ class RadioPrimitiveFieldType extends AbstractPrimitiveFieldType
         return 'radio';
     }
 
-    public function getDefaultValue(): string
-    {
-        return '';
-    }
 
     public function getOptions(): array
     {

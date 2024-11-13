@@ -9,6 +9,7 @@ use PrestaSafe\PrettyBlocks\FieldType\AbstractFieldType;
 abstract class AbstractPrimitiveFieldType extends AbstractFieldType implements PrimitiveFieldTypeInterface
 {
     protected mixed $value;
+    protected mixed $defaultValue = null;
 
     public function getDefaultLabel(): string
     {
@@ -23,5 +24,14 @@ abstract class AbstractPrimitiveFieldType extends AbstractFieldType implements P
         ];
     }
 
-    abstract public function getDefaultValue(): mixed;
+    public function getDefaultValue(): mixed
+    {
+        return $this->defaultValue;
+    }
+
+    public function setDefaultValue(mixed $defaultValue): AbstractPrimitiveFieldType
+    {
+        $this->defaultValue = $defaultValue;
+        return $this;
+    }
 }

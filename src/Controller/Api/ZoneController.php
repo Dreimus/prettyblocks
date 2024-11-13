@@ -157,6 +157,7 @@ class ZoneController extends AbstractController
                 $block = new Block($element['label'] ?? '');
                 $block
                     ->setBlockId($blockId)
+                    ->setId($element['id'])
                     ->setFields($element['fields'] ?? [])
                     ->setPosition($position)
                     ->setZone($zone);

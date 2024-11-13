@@ -10,9 +10,4 @@ class EmailPrimitiveFieldType extends AbstractPrimitiveFieldType
     {
         return 'email';
     }
-
-    public function getDefaultValue(): mixed
-    {
-        return '';
-    }
 }

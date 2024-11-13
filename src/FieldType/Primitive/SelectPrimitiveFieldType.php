@@ -16,11 +16,6 @@ class SelectPrimitiveFieldType extends AbstractPrimitiveFieldType
         return 'select';
     }
 
-    public function getDefaultValue(): string
-    {
-        return '';
-    }
-
     public function getOptions(): array
     {
         return $this->options;

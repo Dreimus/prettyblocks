@@ -10,9 +10,4 @@ class OEmbedPrimitiveFieldType extends AbstractPrimitiveFieldType
     {
         return 'oembed';
     }
-
-    public function getDefaultValue(): string
-    {
-        return '';
-    }
 }

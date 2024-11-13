@@ -10,9 +10,4 @@ class PasswordPrimitiveFieldType extends AbstractPrimitiveFieldType
     {
         return 'password';
     }
-
-    public function getDefaultValue(): string
-    {
-        return '';
-    }
 }

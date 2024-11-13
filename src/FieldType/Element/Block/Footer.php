@@ -8,6 +8,7 @@ use PrestaSafe\PrettyBlocks\Collection\FieldTypeCollection;
 use PrestaSafe\PrettyBlocks\Entity\Block\Block\GenericBlock;
 use PrestaSafe\PrettyBlocks\FieldType\Element\Component\Menu\SimpleMenu;
 use PrestaSafe\PrettyBlocks\FieldType\Primitive\TextAreaPrimitiveFieldType;
+use PrestaSafe\PrettyBlocks\FieldType\Primitive\TextPrimitiveFieldType;
 
 class Footer extends AbstractBlockFieldType
 {
@@ -22,9 +23,16 @@ class Footer extends AbstractBlockFieldType
             (new TextAreaPrimitiveFieldType())
                 ->setLabel('Seo description')
                 ->setRequired(true),
-            (new SimpleMenu())
-                ->setLabel('Les + de Raviday')
+            (new TextAreaPrimitiveFieldType())
+                ->setLabel('Les + de Raviday - Titre')
                 ->setRequired(true),
+            (new TextAreaPrimitiveFieldType())
+                ->setLabel('Les + de Raviday - Contenu')
+                ->setRequired(true),
+            (new TextPrimitiveFieldType())
+                ->setLabel('Nos Produits - Titre')
+                ->setRequired(true)
+                ->setDefaultValue('Nos produits'),
         ]);
     }
 

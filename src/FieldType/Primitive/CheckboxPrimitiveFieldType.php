@@ -6,13 +6,9 @@ namespace PrestaSafe\PrettyBlocks\FieldType\Primitive;
 
 class CheckboxPrimitiveFieldType extends AbstractPrimitiveFieldType
 {
+    protected mixed $defaultValue = false;
     public function getType(): string
     {
         return 'checkbox';
-    }
-
-    public function getDefaultValue(): bool
-    {
-        return false;
     }
 }

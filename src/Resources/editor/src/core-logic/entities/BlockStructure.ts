@@ -4,6 +4,7 @@ import {PrimitiveFieldType} from "./ElementType";
 
 export type BlockStructure = {
   id: string;
+  block_id: string;
   label: string;
   fields: Record<string, BlockFieldStructure>;
 };

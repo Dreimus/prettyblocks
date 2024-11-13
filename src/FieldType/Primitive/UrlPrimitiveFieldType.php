@@ -10,9 +10,4 @@ class UrlPrimitiveFieldType extends AbstractPrimitiveFieldType
     {
         return 'url';
     }
-
-    public function getDefaultValue(): string
-    {
-        return '';
-    }
 }

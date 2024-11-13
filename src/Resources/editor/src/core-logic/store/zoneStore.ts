@@ -37,6 +37,8 @@ export const useZoneStore = defineStore("zone", {
   getters: {
     getBlockStructure: (state) => {
       return (blockId: string) => {
+        console.log("Searching for blockId", blockId);
+        console.log("Available blocks", state.availableBlocks);
         return state.availableBlocks.find(
           (block: BlockStructure) => block.id === blockId
         );
@@ -55,14 +57,17 @@ export const useZoneStore = defineStore("zone", {
     getAvailableZones: (state) => {
       return state.availableZones;
     },
-    getSelectedZone: (state) => {
-      return state.selectedZone;
+    getSelectedZoneId: (state) => {
+      return state.selectedZoneId;
     },
     getAvailableBlocks: (state) => {
       return state.availableBlocks;
     },
   },
   actions: {
+    updateAvailableBlocks(blocks) {
+      this.availableBlocks = blocks;
+    },
     fetchAvailableBlocks() {
       fetchAvailableBlocks();
     },

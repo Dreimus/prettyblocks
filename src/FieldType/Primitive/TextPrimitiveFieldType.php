@@ -10,9 +10,4 @@ class TextPrimitiveFieldType extends AbstractPrimitiveFieldType
     {
         return 'text';
     }
-
-    public function getDefaultValue(): string
-    {
-        return '';
-    }
 }

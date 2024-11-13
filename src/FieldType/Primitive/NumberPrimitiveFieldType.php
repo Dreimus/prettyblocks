@@ -10,9 +10,4 @@ class NumberPrimitiveFieldType extends AbstractPrimitiveFieldType
     {
         return 'number';
     }
-
-    public function getDefaultValue(): int
-    {
-        return 0;
-    }
 }

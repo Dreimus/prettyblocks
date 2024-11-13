@@ -41,7 +41,7 @@ class FieldTypeApiPresenter implements PresenterInterface
         $fields = [];
 
         foreach ($elementClass as $field) {
-            $fields[$field->getId()] = $this->present($field);
+            $fields[uniqid()] = $this->present($field);
         }
 
         return $fields;

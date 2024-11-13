@@ -10,9 +10,4 @@ class WysiwygPrimitiveFieldType extends AbstractPrimitiveFieldType
     {
         return 'wysiwyg';
     }
-
-    public function getDefaultValue(): string
-    {
-        return '';
-    }
 }

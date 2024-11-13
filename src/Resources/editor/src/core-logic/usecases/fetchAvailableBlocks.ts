@@ -13,8 +13,6 @@ export const fetchAvailableBlocks = () => {
   fetch(zoneAvailableBlocksUrl)
     .then((response) => response.json())
     .then((data) => {
-      zoneStore.$patch({
-        availableBlocks: data,
-      });
+      zoneStore.updateAvailableBlocks(data);
     });
 }
