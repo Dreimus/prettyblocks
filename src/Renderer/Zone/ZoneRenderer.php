@@ -31,13 +31,13 @@ class ZoneRenderer
 
     private function renderBlock(Block $block): string
     {
-        return "";
         $scope = $this->smarty->createData(
             $this->smarty
         );
 
         $fields = $block->getFields();
-        $formattedFields = $this->formatBlockFields($block->getBlockId(), $fields);
+        //$formattedFields = $this->formatBlockFields($block->getBlockId(), $fields);
+        $formattedFields = $this->formatFields($fields);
 
         $scope->assign('block_fields', $formattedFields);
 
@@ -47,6 +47,41 @@ class ZoneRenderer
         );
 
         return $tpl->fetch();
+    }
+
+    protected function formatFields(array $fields)
+    {
+        $result = [];
+        foreach ($fields as $field) {
+            $formattedField = [
+                'type' => $field['type'],
+                'slug' => $field['slug'],
+            ];
+
+            if (isset($field['content'])) {
+                $formattedField['content'] = $field['content'];
+            }
+
+            if (isset($field['optional'])) {
+                $formattedField['optional'] = $field['optional'];
+            }
+
+            if (isset($field['hidden'])) {
+                $formattedField['hidden'] = $field['hidden'];
+            }
+
+            if (isset($field['sub_elements'])) {
+                // Pour les repeaters, traiter les sous-éléments
+                $formattedField['sub_elements'] = $this->formatFields($field['sub_elements']);
+            } elseif (isset($field['fields'])) {
+                // Pour les components, traiter les champs internes
+                $formattedField['fields'] = $this->formatFields($field['fields']);
+            }
+
+            // Ajouter le champ formaté au résultat en utilisant le slug comme clé
+            $result[] = $formattedField;
+        }
+        return $result;
     }
 
     private function formatBlockFields(string $blockId, array $fields)
@@ -60,6 +95,10 @@ class ZoneRenderer
     private function formatPreheaderFields(array $fields): array
     {
         $formattedFields = [];
+
+        foreach ($fields as $field) {
+            $formattedFields[$field['id']] = $field['content']['value'];
+        }
 
         $shopDropdown = [];
         $shopDropdown['label'] = $fields[0]['content']['value'];
