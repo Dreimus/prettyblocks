@@ -1,5 +1,3 @@
-import {useZoneStore} from "../store/zoneStore";
-
 export const saveContent = async (zoneStore): Promise<any> => {
   // loop through all the zones and save the content
   const promises = zoneStore.availableZones.map(async (zone) => {

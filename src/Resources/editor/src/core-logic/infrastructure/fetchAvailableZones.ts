@@ -4,6 +4,7 @@ import {fetchCurrentZone} from "./fetchCurrentZone";
 export const fetchAvailableZones = () => {
   let zoneStore = useZoneStore();
 
+  // @ts-ignore
   fetch(window.prettyblocks.routes.zone_list)
     .then((response) => response.json())
     .then((data) => {

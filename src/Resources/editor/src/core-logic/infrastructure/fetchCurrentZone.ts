@@ -16,5 +16,5 @@ export const fetchCurrentZone = () => {
   }
 
   fetchAvailableBlocks();
-  fetchZoneContent(zoneStore.selectedZoneId);
+  fetchZoneContent();
 }

@@ -1,7 +1,6 @@
 import type {BlockStructure} from "./../entities/BlockStructure";
 import type {PrimitiveFieldContentMap} from "../entities/PrimitiveFieldContent";
 import {PrimitiveFieldType} from "../entities/ElementType";
-import type {ZoneState} from "../entities/ZoneState";
 import {addBlock} from "../usecases/addBlock";
 import {addComponent} from "../usecases/addComponent";
 import {defineStore} from "pinia";
@@ -14,23 +13,23 @@ import {moveComponent} from "../usecases/moveComponent";
 import {renameElement} from "../usecases/renameElement";
 import {toggleComponent} from "../usecases/toggleComponent";
 import {setZone} from "../usecases/setZone";
-import {fetchAvailableBlocks} from "../usecases/fetchAvailableBlocks";
-import {fetchAvailableZones} from "../usecases/fetchAvailableZones";
 import {saveContent} from "../usecases/saveContent";
+import {BlockContent} from "../entities/BlockContent";
+import {Zone} from "../entities/Zone";
 
 export const useZoneStore = defineStore("zone", {
   state: (): {
-    availableBlocks: any[];
-    zonesContent: {};
-    availableZones: [];
+    availableBlocks: BlockStructure[];
+    zonesContent: BlockContent[];
+    availableZones: Zone[];
     selectedZoneId: string;
-    content: any[]
+    content: BlockContent[];
   } => {
     return {
       availableBlocks: [],
       content: [],
       selectedZoneId: null,
-      zonesContent: {},
+      zonesContent: [],
       availableZones: [],
     };
   },
@@ -49,11 +48,6 @@ export const useZoneStore = defineStore("zone", {
         return state.zonesContent[zoneId];
       };
     },
-    getZoneState: (state) => {
-      return (zoneId: string): ZoneState => {
-        return state.zonesContent[zoneId] || {blocks: []};
-      };
-    },
     getAvailableZones: (state) => {
       return state.availableZones;
     },
@@ -65,14 +59,8 @@ export const useZoneStore = defineStore("zone", {
     },
   },
   actions: {
-    updateAvailableBlocks(blocks) {
+    updateAvailableBlocks(blocks: BlockStructure[]) {
       this.availableBlocks = blocks;
-    },
-    fetchAvailableBlocks() {
-      fetchAvailableBlocks();
-    },
-    fetchAvailableZones () {
-      fetchAvailableZones();
     },
     setZone(zoneId: string) {
       setZone(this, zoneId);

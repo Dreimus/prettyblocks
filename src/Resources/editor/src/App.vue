@@ -1,8 +1,7 @@
 <script setup>
 import Layout from "./components/Layout.vue";
 import {onMounted} from "vue";
-import {fetchAvailableBlocks} from "./core-logic/usecases/fetchAvailableBlocks";
-import {fetchAvailableZones} from "./core-logic/usecases/fetchAvailableZones";
+import {fetchAvailableZones} from "./core-logic/infrastructure/fetchAvailableZones";
 
 onMounted(() => {
 
