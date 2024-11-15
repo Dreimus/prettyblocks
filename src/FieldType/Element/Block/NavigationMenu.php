@@ -23,12 +23,15 @@ class NavigationMenu extends AbstractBlockFieldType
         return new FieldTypeCollection([
             (new SimpleMenu())
                 ->setLabel('Quick Menu')
+                ->setSlug('quick_menu')
                 ->setRequired(true),
             (new TextPrimitiveFieldType())
                 ->setLabel('Menu button text')
+                ->setSlug('menu_button_text')
                 ->setRequired(true),
             (new SidebarMenu())
                 ->setLabel('Sidebar Menu')
+                ->setSlug('sidebar_menu')
                 ->setRequired(true),
         ]);
     }

@@ -5,6 +5,7 @@ export type BlockContent = {
   id: string;
   block_id: string;
   fields: FieldContent[];
+  slug: string;
   label: string;
   type: ElementType.BLOCK_TYPE;
 };

@@ -26,9 +26,11 @@ class SimpleMenuItem extends AbstractComponentFieldType
         return new FieldTypeCollection([
             (new PrestashopLinkSelectPrimitiveFieldType())
                 ->setLabel('Link')
+                ->setSlug('link')
                 ->setRequired(true),
             (new SwitchPrimitiveFieldType())
                 ->setLabel('Mis en avant')
+                ->setSlug('highlighted')
                 ->setRequired(true),
         ]);
     }

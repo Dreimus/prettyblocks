@@ -6,13 +6,13 @@ namespace PrestaSafe\PrettyBlocks\FieldType\Element\Block;
 
 use PrestaSafe\PrettyBlocks\Collection\FieldTypeCollection;
 use PrestaSafe\PrettyBlocks\Entity\Block\Block\GenericBlock;
-use PrestaSafe\PrettyBlocks\FieldType\Element\Component\Menu\SimpleMenu;
 use PrestaSafe\PrettyBlocks\FieldType\Primitive\TextAreaPrimitiveFieldType;
 use PrestaSafe\PrettyBlocks\FieldType\Primitive\TextPrimitiveFieldType;
 
 class Footer extends AbstractBlockFieldType
 {
     protected string $slug = 'footer';
+
     public function isRepeatable(): bool
     {
         return false;
@@ -23,26 +23,15 @@ class Footer extends AbstractBlockFieldType
         return new FieldTypeCollection([
             (new TextAreaPrimitiveFieldType())
                 ->setLabel('Seo description')
+                ->setSlug('seo_description')
                 ->setRequired(true),
             (new TextPrimitiveFieldType())
                 ->setLabel('Raviday + - Title')
+                ->setSlug('raviday_plus_title')
                 ->setRequired(true),
             (new TextAreaPrimitiveFieldType())
+                ->setSlug('raviday_plus_content')
                 ->setLabel('Raviday + - Content')
-                ->setRequired(true),
-            (new TextPrimitiveFieldType())
-                ->setLabel('Our Products - Title')
-                ->setRequired(true)
-                ->setDefaultValue('Our Products'),
-            (new SimpleMenu())
-                ->setLabel('Our Products - Menu')
-                ->setRequired(true),
-            (new TextPrimitiveFieldType())
-                ->setLabel('Useful Links - Title')
-                ->setRequired(true)
-                ->setDefaultValue('Useful Links'),
-            (new SimpleMenu())
-                ->setLabel('Useful Links - Menu')
                 ->setRequired(true),
         ]);
     }

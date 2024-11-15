@@ -20,6 +20,7 @@ class TextSlider extends AbstractComponentFieldType
         return new FieldTypeCollection([
             (new TextSliderItem())
                 ->setLabel('Slides')
+                ->setSlug('slides')
                 ->setRequired(true),
         ]);
     }

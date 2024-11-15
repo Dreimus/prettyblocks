@@ -23,19 +23,23 @@ class ExpandableMenuItem extends AbstractComponentFieldType
         return new FieldTypeCollection([
             (new TextPrimitiveFieldType())
                 ->setLabel('Menu item text')
+                ->setSlug('menu_item_text')
                 ->setRequired(true),
             (new PrestashopLinkSelectPrimitiveFieldType())
                 ->setLabel('Associated Category')
+                ->setSlug('associated_category')
                 ->setPrestashopClasses(
                     [\Category::class]
                 )
                 ->setRequired(true),
             (new SelectPrimitiveFieldType())
                 ->setLabel('Menu item icon')
+                ->setSlug('menu_item_icon')
                 ->setOptions($this->getIconChoices())
                 ->setRequired(false),
             (new SimpleMenu())
                 ->setLabel('Submenu')
+                ->setSlug('submenu')
                 ->setRequired(false),
         ]);
     }

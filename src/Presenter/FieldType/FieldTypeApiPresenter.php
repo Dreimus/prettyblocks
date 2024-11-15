@@ -17,6 +17,7 @@ class FieldTypeApiPresenter implements PresenterInterface
             'id' => $block->getId(),
             'type' => $block->getType(),
             'label' => $block->getLabel(),
+            'slug' => $block->getSlug(),
         ];
 
         // check if the field has fields
@@ -41,7 +42,7 @@ class FieldTypeApiPresenter implements PresenterInterface
         $fields = [];
 
         foreach ($elementClass as $field) {
-            $fields[uniqid()] = $this->present($field);
+            $fields[uniqid('', true)] = $this->present($field);
         }
 
         return $fields;

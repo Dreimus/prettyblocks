@@ -23,12 +23,15 @@ class PreHeader extends AbstractBlockFieldType
         return new FieldTypeCollection([
             (new TextPrimitiveFieldType())
                 ->setLabel('Label - All Shops')
+                ->setSlug('label_all_shops')
                 ->setRequired(true),
             (new PreHeaderShops())
                 ->setLabel('Shops')
+                ->setSlug('shops')
                 ->setRequired(true),
             (new PreHeaderReassurances())
                 ->setLabel('Reassurances')
+                ->setSlug('reassurances')
                 ->setRequired(true),
         ]);
     }

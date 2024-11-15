@@ -22,10 +22,12 @@ class PreHeaderShops extends AbstractComponentFieldType
         return new FieldTypeCollection([
             (new SelectPrimitiveFieldType())
                 ->setLabel('Logo')
+                ->setSlug('icon')
                 ->setOptions($this->getIconChoices())
                 ->setRequired(false),
             (new LinkPrimitiveFieldType())
                 ->setLabel('Link and Description')
+                ->setSlug('link')
                 ->setRequired(false),
         ]);
     }

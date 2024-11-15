@@ -4,7 +4,7 @@ import type {ComponentContent} from "../entities/ComponentContent";
 import type {ComponentStructure} from "./../entities/ComponentStructure";
 import type {PrimitiveFieldContent} from "../entities/PrimitiveFieldContent";
 import type {PrimitiveFieldStructure} from "../entities/PrimitiveFieldStructure";
-import {PrimitiveFieldType} from "../entities/ElementType";
+import {ElementType, PrimitiveFieldType} from "../entities/ElementType";
 import type {Repeater} from "../entities/Repeater";
 import {v4 as uuidv4} from "uuid";
 
@@ -15,7 +15,8 @@ export const buildNewBlockContentFromBlockStructure = (
     id: uuidv4() as string,
     block_id: blockStructure.id,
     label: blockStructure.label,
-    type: "block",
+    type: ElementType.BLOCK_TYPE,
+    slug: blockStructure.slug,
     fields: Object.values(blockStructure.fields).map(
       (
         field: ComponentStructure | PrimitiveFieldStructure<PrimitiveFieldType>
@@ -40,7 +41,8 @@ const buildNewRepeaterFromStructure = (
       componentStructure.type === "component"
         ? componentStructure.id
         : componentStructure.type,
-    type: "repeater",
+    type: ElementType.REPEATER_TYPE,
+    slug: componentStructure.slug,
     label: componentStructure.label,
     optional: componentStructure.optional || false,
     hidden: false,
@@ -55,6 +57,7 @@ export const buildNewSingleComponentFromStructure = (
     id: uuidv4(),
     component_id: componentStructure.id,
     type: componentStructure.type,
+    slug: componentStructure.slug,
     label: componentStructure.label,
     optional: componentStructure.optional || false,
     hidden: false,
@@ -84,6 +87,7 @@ export const buildNewPrimitiveFieldFromStructure = (
     id: uuidv4(),
     structureId: primitiveFieldStructure.id,
     type: primitiveFieldStructure.type,
+    slug: primitiveFieldStructure.slug,
     label: primitiveFieldStructure.label,
     content: primitiveFieldStructure.default,
     optional: primitiveFieldStructure.optional || false,

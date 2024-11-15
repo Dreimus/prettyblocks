@@ -23,10 +23,12 @@ class PreHeaderReassurances extends AbstractComponentFieldType
         return new FieldTypeCollection([
             (new SelectPrimitiveFieldType())
                 ->setLabel('Icon')
+                ->setSlug('icon')
                 ->setOptions($this->getIconChoices())
                 ->setRequired(false),
             (new WysiwygPrimitiveFieldType())
                 ->setLabel('Reassurance Description')
+                ->setSlug('description')
                 ->setRequired(false),
         ]);
     }

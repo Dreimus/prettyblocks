@@ -20,9 +20,11 @@ class SidebarMenu extends AbstractComponentFieldType
         return new FieldTypeCollection([
             (new ExpandableMenu())
                 ->setLabel('Expandable Menu')
+                ->setSlug('expandable_menu')
                 ->setRequired(true),
             (new SimpleMenu())
                 ->setLabel('Sidebar footer menu')
+                ->setSlug('sidebar_footer_menu')
                 ->setRequired(true),
         ]);
     }

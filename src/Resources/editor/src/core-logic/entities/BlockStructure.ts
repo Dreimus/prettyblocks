@@ -6,6 +6,7 @@ export type BlockStructure = {
   id: string;
   block_id: string;
   label: string;
+  slug: string;
   fields: Record<string, BlockFieldStructure>;
 };
 

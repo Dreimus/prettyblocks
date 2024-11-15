@@ -81,6 +81,7 @@ export type PrimitiveFieldContent<T extends PrimitiveFieldType> = {
   structureId: string;
   type: PrimitiveFieldType;
   label: string;
+  slug: string;
   optional?: boolean;
   content: PrimitiveFieldContentMap[T];
   hidden?: boolean;

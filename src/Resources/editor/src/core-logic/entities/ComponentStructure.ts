@@ -6,6 +6,7 @@ export type ComponentStructure = {
   id: string;
   type: ElementType.COMPONENT_TYPE;
   label: string;
+  slug: string;
   fields: Record<string, ComponentFieldStructure>;
   repeatable?: boolean;
   optional?: boolean;

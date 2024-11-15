@@ -20,6 +20,7 @@ class SimpleMenu extends AbstractComponentFieldType
         return new FieldTypeCollection([
             (new SimpleMenuItem())
                 ->setLabel('Menu Item List')
+                ->setSlug('menu_item_list')
                 ->setRequired(true),
         ]);
     }

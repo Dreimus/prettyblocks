@@ -21,6 +21,7 @@ class PromotionSlider extends AbstractBlockFieldType
         return new FieldTypeCollection([
             (new TextSlider())
                 ->setLabel('Slider')
+                ->setSlug('slider')
                 ->setRequired(true),
         ]);
     }
