@@ -91,15 +91,16 @@ class ZoneController extends AbstractController
 
     public function getZoneFields(string $id): JsonResponse
     {
-        switch ($id) {
-            case '1': // sur entête
+        $zone = $this->entityManager->getRepository(Zone::class)->find($id);
+        switch ($zone->getReference()) {
+            case 'header_top': // sur entête
                 $this->fieldTypeRegistry->add(PreHeader::class);
                 break;
-            case '2': // entête
+            case 'header': // entête
                 $this->fieldTypeRegistry->add(NavigationMenu::class);
                 $this->fieldTypeRegistry->add(PromotionSlider::class);
                 break;
-            case '3': // pied de page
+            case 'footer': // pied de page
                 $this->fieldTypeRegistry->add(Footer::class);
                 break;
             default: // default

@@ -1,4 +1,4 @@
-import type {BlockStructure} from "./../entities/BlockStructure";
+import type {BlockStructure} from "../entities/BlockStructure";
 import type {PrimitiveFieldContentMap} from "../entities/PrimitiveFieldContent";
 import {PrimitiveFieldType} from "../entities/ElementType";
 import {addBlock} from "../usecases/addBlock";
@@ -36,8 +36,6 @@ export const useZoneStore = defineStore("zone", {
   getters: {
     getBlockStructure: (state) => {
       return (blockId: string) => {
-        console.log("Searching for blockId", blockId);
-        console.log("Available blocks", state.availableBlocks);
         return state.availableBlocks.find(
           (block: BlockStructure) => block.id === blockId
         );

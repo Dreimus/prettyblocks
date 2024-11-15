@@ -58,10 +58,6 @@ class FieldTypeElementRegistry
                 $this->fieldTypes->add($fieldType);
             }
 
-            if ($fieldType->getDataClass() && !$this->doctrineElementSubclasses->contains($fieldType->getDataClass())) {
-                $this->doctrineElementSubclasses->add($fieldType->getDataClass());
-            }
-
             foreach ($fieldType->getFields() as $componentFieldType) {
                 $this->add($componentFieldType);
             }

@@ -12,6 +12,7 @@ use PrestaSafe\PrettyBlocks\FieldType\Primitive\TextPrimitiveFieldType;
 
 class NavigationMenu extends AbstractBlockFieldType
 {
+    protected string $slug = 'navigation_menu';
     public function isRepeatable(): bool
     {
         return false;

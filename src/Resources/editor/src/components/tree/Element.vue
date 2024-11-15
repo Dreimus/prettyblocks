@@ -71,7 +71,7 @@ import {useZoneStore} from "../../core-logic/store/zoneStore.js";
 import {computed, nextTick, onMounted, ref, watch} from "vue";
 import Subfields from "./Subfields.vue";
 import Icon from "../Icon.vue";
-import {PrimitiveFieldType} from "../../core-logic/entities/ElementType";
+import {ElementType, PrimitiveFieldType} from "../../core-logic/entities/ElementType";
 import {PrimitiveFieldContent} from "../../core-logic/entities/PrimitiveFieldContent";
 import {useNavigationStore} from "../../core-logic/store/navigationStore";
 import {storeToRefs} from "pinia";
@@ -81,6 +81,9 @@ import {
   SearchComponentResult,
 } from "../../core-logic/utils/finder";
 import {Repeater} from "../../core-logic/entities/Repeater";
+import {
+  closeNavigationOnElementOrParentDeletion
+} from "../../core-logic/usecases/closeNavigationOnElementOrParentDeletion";
 
 const { element, children, isDeletable, isMovable, isDuplicable } =
   defineProps<{
@@ -120,14 +123,15 @@ const checkToggle = () => {
 watch(selectedElement, checkToggle);
 onMounted(checkToggle);
 
-const deleteMap = {
+const deleteStoreMap = {
   block: zoneStore.deleteBlockById,
   component: zoneStore.deleteComponentById,
 };
 
 const deleteElement = () => {
   if (isDeletable) {
-    deleteMap[element.type](element.id);
+    deleteStoreMap[element.type](element.id);
+    closeNavigationOnElementOrParentDeletion(element.id, element.type as ElementType);
   }
 };
 

@@ -12,6 +12,7 @@ use PrestaSafe\PrettyBlocks\FieldType\Primitive\TextPrimitiveFieldType;
 
 class ExpandableMenuItem extends AbstractComponentFieldType
 {
+    protected string $slug = 'expandable_menu_item';
     public function isRepeatable(): bool
     {
         return true;

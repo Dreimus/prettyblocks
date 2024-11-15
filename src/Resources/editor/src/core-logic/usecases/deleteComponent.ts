@@ -26,8 +26,10 @@ export const deleteComponentById = (zoneStore, componentId: string) => {
     const componentIndex = (
       foundComponent.parent as ComponentContent
     ).fields.findIndex((field) => field.id === componentId);
+
     const newFields = (
       foundComponent.parent as ComponentContent
+      // @ts-ignore
     ).fields.toSpliced(componentIndex, 1);
     (foundComponent.parent as ComponentContent).fields = newFields;
   } else {
@@ -36,6 +38,7 @@ export const deleteComponentById = (zoneStore, componentId: string) => {
     ).sub_elements.findIndex((field) => field.id === componentId);
     const newElements = (
       foundComponent.parent as Repeater<ComponentContent>
+      // @ts-ignore
     ).sub_elements.toSpliced(componentIndex, 1);
     (foundComponent.parent as Repeater<ComponentContent>).sub_elements =
       newElements;

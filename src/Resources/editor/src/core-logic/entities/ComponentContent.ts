@@ -1,4 +1,4 @@
-import {type COMPONENT_TYPE, PrimitiveFieldType} from "./ElementType";
+import {ElementType, PrimitiveFieldType} from "./ElementType";
 
 import type {PrimitiveFieldContent} from "./PrimitiveFieldContent";
 import type {Repeater} from "./Repeater";
@@ -11,7 +11,7 @@ export type FieldContent =
 export type ComponentContent = {
   id: string;
   component_id: string;
-  type: COMPONENT_TYPE;
+  type: ElementType.COMPONENT_TYPE;
   label: string;
   optional?: boolean;
   hidden?: boolean;

@@ -1,7 +1,7 @@
 <template>
   <component
     :is="componentMap[field.type]"
-    :value="(field.content as PrimitiveFieldContentMap[PrimitiveFieldType.TEXT])"
+    :value="field.content"
     @update:modelValue="editField"
     class="primitiveFieldInput"
   />
@@ -30,6 +30,7 @@ const { field } = defineProps<{
 const zoneStore = useZoneStore();
 
 const editField = (newContent: PrimitiveFieldContent<PrimitiveFieldType>) => {
+
   zoneStore.editPrimitiveField(field.id, newContent);
 };
 

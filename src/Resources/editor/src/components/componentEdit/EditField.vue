@@ -24,6 +24,7 @@
       <div v-else-if="field.sub_elements[0]?.type" class="repeatedElements">
         <EditPrimitiveField
           v-for="subfield in field.sub_elements"
+          :key="subfield.id"
           :field="subfield as PrimitiveFieldContent<PrimitiveFieldType>"
         />
       </div>
@@ -34,7 +35,9 @@
     </div>
     <div v-else>
       <div class="primitiveFieldLabel">{{ field.label }}</div>
-      <EditPrimitiveField :field="field" />
+      <EditPrimitiveField
+        :key="field.id"
+        :field="field" />
     </div>
   </div>
 </template>

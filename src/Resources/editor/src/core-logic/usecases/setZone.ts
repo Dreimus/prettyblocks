@@ -12,5 +12,5 @@ export const setZone = (zoneStore, zoneId: string) => {
   fetchAvailableBlocks();
 
   zoneStore.content = zoneStore.zonesContent[zoneId] ?? [];
-  useNavigationStore().selectElement(null);
+  useNavigationStore().resetElement();
 };

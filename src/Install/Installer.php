@@ -25,6 +25,7 @@ namespace PrestaSafe\PrettyBlocks\Install;
 use Doctrine\Common\Annotations\AnnotationReader;
 use Doctrine\DBAL\Connection;
 use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\Exception\ORMException;
 use Doctrine\ORM\Mapping\Driver\AnnotationDriver;
 use Doctrine\ORM\Tools\SchemaTool;
 use Evolutive\Library\Install\AbstractInstaller;
@@ -51,6 +52,7 @@ class Installer extends AbstractInstaller
     public function getHooks(): array
     {
         return [
+            'actionDispatcher'
         ];
     }
 
@@ -162,25 +164,37 @@ class Installer extends AbstractInstaller
 
     private function installFixture(): bool
     {
-//        /** @var EntityManager $em */
-//        $em = $this->getEntityManager();
-//
-//
-//        try {
-//
-//            $res =
-//                $em->persist(new Zone('Sur-entête')) &&
-//                $em->persist(new Zone('Entête')) &&
-//                $em->persist(new Zone('Pied de page'));
-//        } catch (ORMException $e) {
-//            throw new CannotInstallPrettyBlocksException($e->getMessage());
-//        }
-//
-//
-//        $em->flush();
+        /** @var EntityManager $em */
+        $em = $this->getEntityManager();
 
-        $query = 'INSERT INTO `' . _DB_PREFIX_ . 'prettyblocks_zone` (`id`,`label`) VALUES ("1","Sur-entête"), ("2","Entête"), ("3","Pied de page")';
-        $this->connection->executeQuery($query);
+
+        try {
+
+            $em->persist(
+                (new Zone())
+                ->setLabel('Sur-entête')
+                ->setReference('header_top')
+            );
+            $em->persist(
+                (new Zone())
+                ->setLabel('Entête')
+                ->setReference('header')
+            );
+            $em->persist(
+                (new Zone())
+                ->setLabel('Pied de page')
+                ->setReference('footer')
+            );
+
+            $em->flush();
+        } catch (ORMException $e) {
+            throw new CannotInstallPrettyBlocksException($e->getMessage());
+        }
+
+
+
+//        $query = 'INSERT INTO `' . _DB_PREFIX_ . 'prettyblocks_zone` (`id`,`label`) VALUES ("1","Sur-entête"), ("2","Entête"), ("3","Pied de page")';
+//        $this->connection->executeQuery($query);
 
         return true;
     }

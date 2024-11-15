@@ -14,7 +14,12 @@ use Symfony\Component\Uid\Uuid;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name=Zone::TABLE_NAME)
+ * @ORM\Table(
+ *     name=Zone::TABLE_NAME,
+ *     indexes={
+ *         @ORM\Index(name="reference", columns={"reference"})
+ *     }
+ *     )
  */
 class Zone
 {
@@ -23,14 +28,19 @@ class Zone
     /**
      * @ORM\Id
      * @ORM\Column(type="string")
-     * @GeneratedValue
      */
-    private string $id;
+    protected string $id = '';
 
     /**
      * @ORM\Column(type="string")
      */
-    private string $label;
+    protected string $label;
+
+    /**
+     * @var string
+     * @ORM\Column(type="string")
+     */
+    protected string $reference;
 
     /**
      * @var Collection<int, Block>
@@ -44,9 +54,8 @@ class Zone
      */
     private Collection $blocks;
 
-    public function __construct(string $label)
+    public function __construct()
     {
-        $this->label = $label;
         $this->blocks = new ArrayCollection();
         $this->id = (Uuid::v6())->toRfc4122();
     }
@@ -70,9 +79,9 @@ class Zone
     /**
      * Return the collection of elements in the zone
      *
-     * @return Collection<int, Block>
-     *
      * @throws TypeException
+     *
+     * @return Collection<int, Block>
      */
     public function getBlocks(): Collection
     {
@@ -110,5 +119,22 @@ class Zone
         foreach ($this->blocks as $element) {
             $this->removeBlock($element);
         }
+    }
+
+    public function getReference(): string
+    {
+        return $this->reference;
+    }
+
+    public function setLabel(string $label): Zone
+    {
+        $this->label = $label;
+        return $this;
+    }
+
+    public function setReference(string $reference): Zone
+    {
+        $this->reference = $reference;
+        return $this;
     }
 }

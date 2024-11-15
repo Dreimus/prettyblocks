@@ -12,6 +12,7 @@ use PrestaSafe\PrettyBlocks\FieldType\Primitive\TextPrimitiveFieldType;
 
 class Footer extends AbstractBlockFieldType
 {
+    protected string $slug = 'footer';
     public function isRepeatable(): bool
     {
         return false;

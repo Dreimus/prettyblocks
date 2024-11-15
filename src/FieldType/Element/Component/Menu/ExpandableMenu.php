@@ -9,6 +9,8 @@ use PrestaSafe\PrettyBlocks\FieldType\Element\Component\AbstractComponentFieldTy
 
 class ExpandableMenu extends AbstractComponentFieldType
 {
+    protected string $slug = 'expandable_menu';
+
     public function isRepeatable(): bool
     {
         return false;

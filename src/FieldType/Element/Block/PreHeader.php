@@ -6,10 +6,13 @@ namespace PrestaSafe\PrettyBlocks\FieldType\Element\Block;
 
 use PrestaSafe\PrettyBlocks\Collection\FieldTypeCollection;
 use PrestaSafe\PrettyBlocks\Entity\Block\Block\GenericBlock;
+use PrestaSafe\PrettyBlocks\FieldType\Element\Component\PreHeader\PreHeaderReassurances;
+use PrestaSafe\PrettyBlocks\FieldType\Element\Component\PreHeader\PreHeaderShops;
 use PrestaSafe\PrettyBlocks\FieldType\Primitive\TextPrimitiveFieldType;
 
 class PreHeader extends AbstractBlockFieldType
 {
+    protected string $slug = 'pre_header';
     public function isRepeatable(): bool
     {
         return false;
@@ -19,28 +22,14 @@ class PreHeader extends AbstractBlockFieldType
     {
         return new FieldTypeCollection([
             (new TextPrimitiveFieldType())
-                ->setLabel('Label Raviday Matelas')
+                ->setLabel('Label - All Shops')
                 ->setRequired(true),
-            (new TextPrimitiveFieldType())
-                ->setLabel('Label Raviday Piscine')
+            (new PreHeaderShops())
+                ->setLabel('Shops')
                 ->setRequired(true),
-            (new TextPrimitiveFieldType())
-                ->setLabel('Label Raviday Jardin')
+            (new PreHeaderReassurances())
+                ->setLabel('Reassurances')
                 ->setRequired(true),
-            (new TextPrimitiveFieldType())
-                ->setLabel('Label Raviday Barbecue')
-                ->setRequired(true),
-            (new TextPrimitiveFieldType())
-                ->setLabel('Label Raviday Allemagne')
-                ->setRequired(true),
-            (new TextPrimitiveFieldType())
-                ->setLabel('Avis Vérifiés'),
-            (new TextPrimitiveFieldType())
-                ->setLabel('Livraison'),
-            (new TextPrimitiveFieldType())
-                ->setLabel('Besoin d\'aide'),
-            (new TextPrimitiveFieldType())
-                ->setLabel('Contact Phone'),
         ]);
     }
 

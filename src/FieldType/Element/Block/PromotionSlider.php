@@ -10,6 +10,7 @@ use PrestaSafe\PrettyBlocks\FieldType\Element\Component\Slider\TextSlider;
 
 class PromotionSlider extends AbstractBlockFieldType
 {
+    protected string $slug = 'promotion_slider';
     public function isRepeatable(): bool
     {
         return false;

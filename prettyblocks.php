@@ -33,7 +33,7 @@ if (file_exists(__DIR__ . '/vendor/autoload.php')) {
     require_once __DIR__ . '/vendor/autoload.php';
 }
 
-class PrettyBlocks extends Module implements WidgetInterface
+class PrettyBlocks extends Module
 {
     public $js_path;
     public $css_path;
@@ -128,69 +128,41 @@ class PrettyBlocks extends Module implements WidgetInterface
         }
     }
 
-    public function hookActionFrontControllerSetVariables()
-    {
-        return [
-            // 'ajax_builder_url' => $this->context->link->getModuleLink($this->name,'ajax'),
-            'id_shop' => (int) $this->context->shop->id,
-            'shop_name' => $this->context->shop->name,
-            'shop_current_url' => $this->context->shop->getBaseURL(true, true),
-        ];
-    }
-
-    /**
-     * Generate $state to block view
-     *
-     * @return array
-     */
-    public function getWidgetVariables($hookName = null, array $configuration = [])
-    {
-        $block = (isset($configuration['block'])) ? PrettyBlocksModel::loadBlock($configuration['block']) : [];
-
-        return [
-            'block' => $block,
-            'hookName' => $hookName,
-            'configuration' => $configuration,
-        ];
-    }
-
-    /**
-     * Return la view
-     */
-    public function renderWidget($hookName = null, array $configuration = [])
-    {
-        $vars = $this->getWidgetVariables($hookName, $configuration);
-        $this->smarty->assign($vars);
-        if (isset($configuration['zone_name'])) {
-            return $this->renderZone(['zone_name' => pSQL($configuration['zone_name'])]);
-        }
-        if (isset($configuration['action']) && $configuration['action'] == 'GetBlockRender') {
-            $block = $configuration['data'];
-            $vars = [
-                'id_prettyblocks' => $block['id_prettyblocks'],
-                'instance_id' => $block['instance_id'],
-                'state' => $block['repeater_db'],
-                'block' => $block,
-                'test' => Hook::exec('beforeRenderingBlock', ['state' => $configuration['data']], null, true),
-            ];
-            $this->smarty->assign($vars);
-            $template = $block['templates'][$block['templateSelected']] ?? 'module:prettyblocks/views/templates/blocks/welcome.tpl';
-
-            return $this->fetch($template);
-        }
-        if ($vars['hookName'] !== null) {
-            return ZonePlugin::renderZone(['zone_name' => $vars['hookName']]);
-        }
-    }
-
-    /**
-     * Hook dispatcher for registering smarty function
-     */
     public function hookActionDispatcher()
     {
-        /* @deprecated {magic_zone} is deprecated since v1.1.0. Use {prettyblocks_zone} instead. */
-        $this->context->smarty->registerPlugin('function', 'magic_zone', [ZonePlugin::class, 'renderZone']);
         $this->context->smarty->registerPlugin('function', 'prettyblocks_zone', [ZonePlugin::class, 'renderZone']);
-        $this->context->smarty->registerPlugin('function', 'prettyblocks_title', [ZonePlugin::class, 'renderTitle']);
     }
+
+//
+//    /**
+//     * Return la view
+//     */
+//    public function renderWidget($hookName = null, array $configuration = [])
+//    {
+//        // @todo: delete widget
+//        return;
+//        $vars = $this->getWidgetVariables($hookName, $configuration);
+//        $this->smarty->assign($vars);
+//        if (isset($configuration['zone_name'])) {
+//            return $this->renderZone(['zone_name' => pSQL($configuration['zone_name'])]);
+//        }
+//        if (isset($configuration['action']) && $configuration['action'] == 'GetBlockRender') {
+//            $block = $configuration['data'];
+//            $vars = [
+//                'id_prettyblocks' => $block['id_prettyblocks'],
+//                'instance_id' => $block['instance_id'],
+//                'state' => $block['repeater_db'],
+//                'block' => $block,
+//                'test' => Hook::exec('beforeRenderingBlock', ['state' => $configuration['data']], null, true),
+//            ];
+//            $this->smarty->assign($vars);
+//            $template = $block['templates'][$block['templateSelected']] ?? 'module:prettyblocks/views/templates/blocks/welcome.tpl';
+//
+//            return $this->fetch($template);
+//        }
+//        if ($vars['hookName'] !== null) {
+//            return ZonePlugin::renderZone(['zone_name' => $vars['hookName']]);
+//        }
+//    }
+
 }

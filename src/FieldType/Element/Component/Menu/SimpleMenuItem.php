@@ -15,6 +15,7 @@ use Product;
 
 class SimpleMenuItem extends AbstractComponentFieldType
 {
+    protected string $slug = 'simple_menu_item';
     public function isRepeatable(): bool
     {
         return true;

@@ -10,6 +10,7 @@ use PrestaSafe\PrettyBlocks\FieldType\Primitive\LinkPrimitiveFieldType;
 
 class TextSliderItem extends AbstractComponentFieldType
 {
+    protected string $slug = 'text_slider_item';
     public function isRepeatable(): bool
     {
         return true;
@@ -20,6 +21,7 @@ class TextSliderItem extends AbstractComponentFieldType
         return new FieldTypeCollection([
             (new LinkPrimitiveFieldType())
                 ->setLabel('Link')
+                ->setSlug('link')
                 ->setRequired(true),
         ]);
     }

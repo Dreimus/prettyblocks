@@ -11,4 +11,5 @@ export const deleteBlockById = (zoneStore, blockId: string) => {
   const newArray = zoneStore.content.toSpliced(blockIndex, 1);
   zoneStore.content = newArray;
   zoneStore.zonesContent[zoneStore.selectedZoneId] = newArray;
+
 };

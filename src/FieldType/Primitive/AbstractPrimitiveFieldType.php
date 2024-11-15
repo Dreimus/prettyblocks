@@ -10,6 +10,7 @@ abstract class AbstractPrimitiveFieldType extends AbstractFieldType implements P
 {
     protected mixed $value;
     protected mixed $defaultValue = null;
+    protected string $slug = '';
 
     public function getDefaultLabel(): string
     {
@@ -33,5 +34,16 @@ abstract class AbstractPrimitiveFieldType extends AbstractFieldType implements P
     {
         $this->defaultValue = $defaultValue;
         return $this;
+    }
+
+    public function setSlug(string $slug): AbstractPrimitiveFieldType
+    {
+        $this->slug = $slug;
+        return $this;
+    }
+
+    public function getSlug(): string
+    {
+        return $this->slug;
     }
 }

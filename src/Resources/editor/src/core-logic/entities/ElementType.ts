@@ -21,6 +21,8 @@ export enum PrimitiveFieldType {
   LINK = "link",
 }
 
-export type REPEATER_TYPE = "repeater";
-
-export type COMPONENT_TYPE = "component";
+export enum ElementType {
+  REPEATER_TYPE = "repeater",
+  BLOCK_TYPE = "block",
+  COMPONENT_TYPE = "component",
+}
