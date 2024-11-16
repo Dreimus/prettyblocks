@@ -13,6 +13,8 @@ use PrestaSafe\PrettyBlocks\FieldType\Primitive\TextPrimitiveFieldType;
 class ExpandableMenuItem extends AbstractComponentFieldType
 {
     protected string $slug = 'expandable_menu_item';
+    protected string $template = 'module:prettyblocks/templates/element/component/menu/expandable_menu_item.tpl';
+
     public function isRepeatable(): bool
     {
         return true;

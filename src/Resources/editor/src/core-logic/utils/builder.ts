@@ -17,6 +17,7 @@ export const buildNewBlockContentFromBlockStructure = (
     label: blockStructure.label,
     type: ElementType.BLOCK_TYPE,
     slug: blockStructure.slug,
+    template: blockStructure.template,
     fields: Object.values(blockStructure.fields).map(
       (
         field: ComponentStructure | PrimitiveFieldStructure<PrimitiveFieldType>
@@ -43,6 +44,7 @@ const buildNewRepeaterFromStructure = (
         : componentStructure.type,
     type: ElementType.REPEATER_TYPE,
     slug: componentStructure.slug,
+    template: componentStructure.template || "",
     label: componentStructure.label,
     optional: componentStructure.optional || false,
     hidden: false,
@@ -58,6 +60,7 @@ export const buildNewSingleComponentFromStructure = (
     component_id: componentStructure.id,
     type: componentStructure.type,
     slug: componentStructure.slug,
+    template: componentStructure.template,
     label: componentStructure.label,
     optional: componentStructure.optional || false,
     hidden: false,
@@ -89,6 +92,7 @@ export const buildNewPrimitiveFieldFromStructure = (
     type: primitiveFieldStructure.type,
     slug: primitiveFieldStructure.slug,
     label: primitiveFieldStructure.label,
+    template: primitiveFieldStructure.template || "",
     content: primitiveFieldStructure.default,
     optional: primitiveFieldStructure.optional || false,
     hidden: false,

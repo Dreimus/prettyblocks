@@ -7,6 +7,7 @@ export type PrimitiveFieldStructure<T extends PrimitiveFieldType> = {
   slug: string;
   type: T;
   default: PrimitiveFieldContentMap[T];
+  template: string;
   repeatable?: boolean;
   optional?: boolean;
 };

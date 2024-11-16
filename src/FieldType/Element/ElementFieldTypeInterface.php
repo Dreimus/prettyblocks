@@ -15,7 +15,9 @@ interface ElementFieldTypeInterface extends FieldTypeInterface
      */
     public function getFields(): FieldTypeCollection;
 
-    public function getDataClass(): string|null;
-
     public function isRepeatable(): bool;
+
+    public function getSlug(): string;
+
+    public function getTemplate(): string;
 }

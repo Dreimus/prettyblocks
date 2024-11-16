@@ -11,6 +11,8 @@ use PrestaSafe\PrettyBlocks\FieldType\Primitive\LinkPrimitiveFieldType;
 class TextSliderItem extends AbstractComponentFieldType
 {
     protected string $slug = 'text_slider_item';
+    protected string $template = 'module:prettyblocks/templates/element/component/slider/text_slider_item.tpl';
+
     public function isRepeatable(): bool
     {
         return true;

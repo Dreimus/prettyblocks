@@ -11,20 +11,29 @@ abstract class AbstractElementFieldType extends AbstractFieldType implements Ele
 {
     protected FieldTypeCollection $fields;
     protected string $slug = '';
-
-    public function getDataClass(): string|null
-    {
-        return null;
-    }
+    protected string $template = '';
 
     public function setSlug(string $slug): AbstractElementFieldType
     {
         $this->slug = $slug;
+
         return $this;
     }
 
     public function getSlug(): string
     {
         return $this->slug;
+    }
+
+    public function setTemplate(string $template): AbstractElementFieldType
+    {
+        $this->template = $template;
+
+        return $this;
+    }
+
+    public function getTemplate(): string
+    {
+        return $this->template;
     }
 }

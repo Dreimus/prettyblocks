@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PrestaSafe\PrettyBlocks\FieldType\Element\Block;
 
 use PrestaSafe\PrettyBlocks\Collection\FieldTypeCollection;
-use PrestaSafe\PrettyBlocks\Entity\Block\Block\GenericBlock;
 use PrestaSafe\PrettyBlocks\FieldType\Element\Component\Menu\SidebarMenu;
 use PrestaSafe\PrettyBlocks\FieldType\Element\Component\Menu\SimpleMenu;
 use PrestaSafe\PrettyBlocks\FieldType\Primitive\TextPrimitiveFieldType;
@@ -13,6 +12,8 @@ use PrestaSafe\PrettyBlocks\FieldType\Primitive\TextPrimitiveFieldType;
 class NavigationMenu extends AbstractBlockFieldType
 {
     protected string $slug = 'navigation_menu';
+    protected string $template = 'module:prettyblocks/templates/element/block/navigation_menu.tpl';
+
     public function isRepeatable(): bool
     {
         return false;
@@ -39,10 +40,5 @@ class NavigationMenu extends AbstractBlockFieldType
     public function getDefaultLabel(): string
     {
         return 'Navigation Menu';
-    }
-
-    public function getDataClass(): string|null
-    {
-        return GenericBlock::class;
     }
 }

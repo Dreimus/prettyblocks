@@ -9,6 +9,8 @@ use PrestaSafe\PrettyBlocks\FieldType\Element\AbstractElementFieldType;
 abstract class AbstractComponentFieldType extends AbstractElementFieldType implements ComponentFieldTypeInterface
 {
     protected bool $isRepeatable;
+    protected string $slug = 'undefined_component';
+    protected string $template = 'module:prettyblocks/templates/element/component/undefined_component.tpl';
 
     abstract public function isRepeatable(): bool;
 

@@ -7,6 +7,7 @@ export type Repeater<C extends FieldContent> = {
   slug: string;
   type: ElementType.REPEATER_TYPE;
   label: string;
+  template: string;
   sub_elements: C[];
   optional?: boolean;
   hidden?: boolean;

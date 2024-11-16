@@ -26,4 +26,12 @@ interface BlockInterface
 
     public function setZone(?Zone $zone): BlockInterface;
 
+    public function setSlug(string $slug): BlockInterface;
+
+    public function getSlug(): string;
+
+    public function setTemplate(string $template): BlockInterface;
+
+    public function getTemplate(): string;
+
 }

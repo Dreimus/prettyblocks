@@ -36,6 +36,11 @@ class Block implements BlockInterface
     protected string $slug;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected string $template;
+
+    /**
      * @ORM\Column(type="integer")
      */
     protected int $position;
@@ -138,5 +143,16 @@ class Block implements BlockInterface
     public function getSlug(): string
     {
         return $this->slug;
+    }
+
+    public function setTemplate(string $template): BlockInterface
+    {
+        $this->template = $template;
+        return $this;
+    }
+
+    public function getTemplate(): string
+    {
+        return $this->template;
     }
 }

@@ -10,6 +10,8 @@ use PrestaSafe\PrettyBlocks\FieldType\Element\Component\AbstractComponentFieldTy
 class SimpleMenu extends AbstractComponentFieldType
 {
     protected string $slug = 'simple_menu';
+    protected string $template = 'module:prettyblocks/templates/element/component/menu/simple_menu.tpl';
+
     public function isRepeatable(): bool
     {
         return false;

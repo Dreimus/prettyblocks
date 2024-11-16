@@ -7,6 +7,7 @@ export type BlockStructure = {
   block_id: string;
   label: string;
   slug: string;
+  template: string;
   fields: Record<string, BlockFieldStructure>;
 };
 

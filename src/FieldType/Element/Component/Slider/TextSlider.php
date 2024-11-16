@@ -10,6 +10,8 @@ use PrestaSafe\PrettyBlocks\FieldType\Element\Component\AbstractComponentFieldTy
 class TextSlider extends AbstractComponentFieldType
 {
     protected string $slug = 'text_slider';
+    protected string $template = 'module:prettyblocks/templates/element/component/slider/text_slider.tpl';
+
     public function isRepeatable(): bool
     {
         return false;

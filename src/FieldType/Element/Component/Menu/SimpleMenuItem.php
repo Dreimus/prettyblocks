@@ -16,6 +16,8 @@ use Product;
 class SimpleMenuItem extends AbstractComponentFieldType
 {
     protected string $slug = 'simple_menu_item';
+    protected string $template = 'module:prettyblocks/templates/element/component/menu/simple_menu_item.tpl';
+
     public function isRepeatable(): bool
     {
         return true;

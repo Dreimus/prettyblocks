@@ -13,6 +13,8 @@ use PrestaSafe\PrettyBlocks\FieldType\Primitive\WysiwygPrimitiveFieldType;
 class PreHeaderReassurances extends AbstractComponentFieldType
 {
     protected string $slug = 'pre_header_reassurances';
+    protected string $template = 'module:prettyblocks/templates/element/component/pre_header/pre_header_reassurances.tpl';
+
     public function isRepeatable(): bool
     {
         return true;

@@ -20,11 +20,6 @@ class FieldTypeApiPresenter implements PresenterInterface
             'slug' => $block->getSlug(),
         ];
 
-        // check if the field has fields
-        if ($block instanceof ElementFieldTypeInterface) {
-            $formattedData['repeatable'] = $block->isRepeatable();
-            $formattedData['fields'] = $this->presentFields($block->getFields());
-        }
 
         if ($block instanceof PrimitiveFieldTypeInterface) {
             $formattedData['default'] = $block->getDefault();
@@ -32,6 +27,12 @@ class FieldTypeApiPresenter implements PresenterInterface
             if (method_exists($block, 'getExtraData')) {
                 $formattedData['extraData'] = $block->getExtraData();
             }
+        }
+
+        if ($block instanceof ElementFieldTypeInterface) {
+            $formattedData['repeatable'] = $block->isRepeatable();
+            $formattedData['template'] = $block->getTemplate();
+            $formattedData['fields'] = $this->presentFields($block->getFields());
         }
 
         return $formattedData;

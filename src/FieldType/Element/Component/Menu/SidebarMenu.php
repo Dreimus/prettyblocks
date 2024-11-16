@@ -10,6 +10,8 @@ use PrestaSafe\PrettyBlocks\FieldType\Element\Component\AbstractComponentFieldTy
 class SidebarMenu extends AbstractComponentFieldType
 {
     protected string $slug = 'sidebar_menu';
+    protected string $template = 'module:prettyblocks/templates/element/component/menu/sidebar_menu.tpl';
+
     public function isRepeatable(): bool
     {
         return false;

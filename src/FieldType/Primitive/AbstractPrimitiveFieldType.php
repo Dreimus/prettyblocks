@@ -30,13 +30,13 @@ abstract class AbstractPrimitiveFieldType extends AbstractFieldType implements P
         return $this->defaultValue;
     }
 
-    public function setDefaultValue(mixed $defaultValue): AbstractPrimitiveFieldType
+    public function setDefaultValue(mixed $defaultValue): PrimitiveFieldTypeInterface
     {
         $this->defaultValue = $defaultValue;
         return $this;
     }
 
-    public function setSlug(string $slug): AbstractPrimitiveFieldType
+    public function setSlug(string $slug): PrimitiveFieldTypeInterface
     {
         $this->slug = $slug;
         return $this;

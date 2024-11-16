@@ -76,6 +76,8 @@ class ZoneController extends AbstractController
                         'id' => $block->getId(),
                         'block_id' => $block->getBlockId(),
                         'type' => $block->getType(),
+                        'slug' => $block->getSlug(),
+                        'template' => $block->getTemplate(),
                         'label' => $block->getLabel(),
                         'fields' => $block->getFields(),
                     ];
@@ -153,6 +155,8 @@ class ZoneController extends AbstractController
                 $existingBlock
                     ->setLabel($element['label'] ?? '')
                     ->setFields($element['fields'] ?? [])
+                    ->setSlug($element['slug'] ?? '')
+                    ->setTemplate($element['template'] ?? '')
                     ->setPosition($position);
             } else {
                 $block = new Block($element['label'] ?? '');
@@ -160,6 +164,8 @@ class ZoneController extends AbstractController
                     ->setBlockId($blockId)
                     ->setId($element['id'])
                     ->setFields($element['fields'] ?? [])
+                    ->setSlug($element['slug'] ?? '')
+                    ->setTemplate($element['template'] ?? '')
                     ->setPosition($position)
                     ->setZone($zone);
 

@@ -12,6 +12,8 @@ use PrestaSafe\PrettyBlocks\FieldType\Primitive\SelectPrimitiveFieldType;
 class PreHeaderShops extends AbstractComponentFieldType
 {
     protected string $slug = 'pre_header_shops';
+    protected string $template = 'module:prettyblocks/templates/element/component/pre_header/pre_header_shops.tpl';
+
     public function isRepeatable(): bool
     {
         return true;
@@ -28,6 +30,8 @@ class PreHeaderShops extends AbstractComponentFieldType
             (new LinkPrimitiveFieldType())
                 ->setLabel('Link and Description')
                 ->setSlug('link')
+                ->setLinkLabel('Raviday')
+                ->setLinkUrl('https://www.raviday.com')
                 ->setRequired(false),
         ]);
     }

@@ -14,6 +14,7 @@ export type ComponentContent = {
   type: ElementType.COMPONENT_TYPE;
   label: string;
   slug: string;
+  template: string;
   optional?: boolean;
   hidden?: boolean;
   fields: FieldContent[];

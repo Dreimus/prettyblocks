@@ -12,6 +12,7 @@ use PrestaSafe\PrettyBlocks\FieldType\Primitive\TextPrimitiveFieldType;
 class Footer extends AbstractBlockFieldType
 {
     protected string $slug = 'footer';
+    protected string $template = 'module:prettyblocks/templates/element/block/footer.tpl';
 
     public function isRepeatable(): bool
     {
@@ -39,10 +40,5 @@ class Footer extends AbstractBlockFieldType
     public function getDefaultLabel(): string
     {
         return 'Footer';
-    }
-
-    public function getDataClass(): string|null
-    {
-        return GenericBlock::class;
     }
 }

@@ -11,6 +11,8 @@ use PrestaSafe\PrettyBlocks\FieldType\Element\Component\Slider\TextSlider;
 class PromotionSlider extends AbstractBlockFieldType
 {
     protected string $slug = 'promotion_slider';
+    protected string $template = 'module:prettyblocks/templates/element/block/promotion_slider.tpl';
+
     public function isRepeatable(): bool
     {
         return false;
@@ -29,10 +31,5 @@ class PromotionSlider extends AbstractBlockFieldType
     public function getDefaultLabel(): string
     {
         return 'Promotion Slider';
-    }
-
-    public function getDataClass(): string|null
-    {
-        return GenericBlock::class;
     }
 }
