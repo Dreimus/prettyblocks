@@ -52,7 +52,7 @@ class Installer extends AbstractInstaller
     public function getHooks(): array
     {
         return [
-            'actionDispatcher'
+            'actionDispatcher',
         ];
     }
 
@@ -167,34 +167,32 @@ class Installer extends AbstractInstaller
         /** @var EntityManager $em */
         $em = $this->getEntityManager();
 
-
         try {
-
             $em->persist(
                 (new Zone())
-                ->setLabel('Sur-entête')
-                ->setReference('header_top')
+                    ->setLabel('Blocs génériques')
+                    ->setReference(Zone::GENERIC_ZONE_REFERENCE)
             );
             $em->persist(
                 (new Zone())
-                ->setLabel('Entête')
-                ->setReference('header')
+                    ->setLabel('Sur-entête')
+                    ->setReference('header_top')
             );
             $em->persist(
                 (new Zone())
-                ->setLabel('Pied de page')
-                ->setReference('footer')
+                    ->setLabel('Entête')
+                    ->setReference('header')
+            );
+            $em->persist(
+                (new Zone())
+                    ->setLabel('Pied de page')
+                    ->setReference('footer')
             );
 
             $em->flush();
         } catch (ORMException $e) {
             throw new CannotInstallPrettyBlocksException($e->getMessage());
         }
-
-
-
-//        $query = 'INSERT INTO `' . _DB_PREFIX_ . 'prettyblocks_zone` (`id`,`label`) VALUES ("1","Sur-entête"), ("2","Entête"), ("3","Pied de page")';
-//        $this->connection->executeQuery($query);
 
         return true;
     }

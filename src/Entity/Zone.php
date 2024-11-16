@@ -7,7 +7,6 @@ namespace PrestaSafe\PrettyBlocks\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\ORM\Mapping\GeneratedValue;
 use PrestaSafe\PrettyBlocks\Collection\BlockCollection;
 use PrestaShop\PrestaShop\Core\Exception\TypeException;
 use Symfony\Component\Uid\Uuid;
@@ -25,6 +24,7 @@ class Zone
 {
     public const TABLE_NAME = _DB_PREFIX_ . 'prettyblocks_zone';
     public const TABLE_BLOCK_NAME = _DB_PREFIX_ . 'prettyblocks_zone_block';
+    public const GENERIC_ZONE_REFERENCE = 'generic';
     /**
      * @ORM\Id
      * @ORM\Column(type="string")
@@ -129,12 +129,14 @@ class Zone
     public function setLabel(string $label): Zone
     {
         $this->label = $label;
+
         return $this;
     }
 
     public function setReference(string $reference): Zone
     {
         $this->reference = $reference;
+
         return $this;
     }
 }

@@ -5,7 +5,6 @@ import Frame from "./Frame.vue";
 import RightPanel from "./RightPanel.vue";
 import {defineComponent, ref} from "@vue/runtime-core";
 import emitter from "tiny-emitter/instance";
-import {useZoneStore} from "../core-logic/store/zoneStore";
 import ComponentTree from "./tree/ComponentTree.vue";
 import AddBlockModal from "./AddBlockModal.vue";
 import EditPanel from "./componentEdit/EditPanel.vue";
@@ -38,7 +37,7 @@ emitter.on("changeLeftPanelSize", (value) => {
 });
 
 // right panel
-let rightWidth = ref("w-80");
+let rightWidth = ref("w-5/12");
 let hidden_right = ref("sm:block");
 
 emitter.on("hideRightPanelSize", (value) => {

@@ -95,6 +95,9 @@ class ZoneController extends AbstractController
     {
         $zone = $this->entityManager->getRepository(Zone::class)->find($id);
         switch ($zone->getReference()) {
+            case Zone::GENERIC_ZONE_REFERENCE: // blocs génériques
+
+                break;
             case 'header_top': // sur entête
                 $this->fieldTypeRegistry->add(PreHeader::class);
                 break;
