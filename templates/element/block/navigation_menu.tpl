@@ -1,2 +1,1 @@
-{$fields|print_r}
-{debug}
+{include file='_partials/navigation_menu.tpl'}
