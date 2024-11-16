@@ -19,6 +19,7 @@ export enum PrimitiveFieldType {
   MAP = "map",
   ICON = "icon",
   LINK = "link",
+  PRESTASHOP_ENTITY_SELECTOR = "prestashop-entity-selector",
 }
 
 export enum ElementType {

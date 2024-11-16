@@ -6,7 +6,7 @@ namespace PrestaSafe\PrettyBlocks\FieldType\Element\Component\Menu;
 
 use PrestaSafe\PrettyBlocks\Collection\FieldTypeCollection;
 use PrestaSafe\PrettyBlocks\FieldType\Element\Component\AbstractComponentFieldType;
-use PrestaSafe\PrettyBlocks\FieldType\Primitive\PrestashopLinkSelectPrimitiveFieldType;
+use PrestaSafe\PrettyBlocks\FieldType\Primitive\PrestashopEntitySelectorPrimitiveFieldType;
 use PrestaSafe\PrettyBlocks\FieldType\Primitive\SelectPrimitiveFieldType;
 use PrestaSafe\PrettyBlocks\FieldType\Primitive\TextPrimitiveFieldType;
 
@@ -27,21 +27,14 @@ class ExpandableMenuItem extends AbstractComponentFieldType
                 ->setLabel('Menu item text')
                 ->setSlug('menu_item_text')
                 ->setRequired(true),
-            (new PrestashopLinkSelectPrimitiveFieldType())
+            (new PrestashopEntitySelectorPrimitiveFieldType())
                 ->setLabel('Associated Category')
                 ->setSlug('associated_category')
-                ->setPrestashopClasses(
-                    [\Category::class]
-                )
                 ->setRequired(true),
             (new SelectPrimitiveFieldType())
                 ->setLabel('Menu item icon')
                 ->setSlug('menu_item_icon')
                 ->setOptions($this->getIconChoices())
-                ->setRequired(false),
-            (new SimpleMenu())
-                ->setLabel('Submenu')
-                ->setSlug('submenu')
                 ->setRequired(false),
         ]);
     }

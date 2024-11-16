@@ -4,8 +4,13 @@ declare(strict_types=1);
 
 namespace PrestaSafe\PrettyBlocks\Controller\Api;
 
+use Category;
+use CMS;
 use PrestaSafe\PrettyBlocks\FieldType\Registry\FieldTypeElementRegistry;
 use PrestaSafe\PrettyBlocks\Presenter\FieldType\FieldTypeApiPresenter;
+use PrestaShop\PrestaShop\Adapter\LegacyContext;
+use PrestaShopCollection;
+use Product;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -14,7 +19,8 @@ class FieldController extends AbstractController implements EventSubscriberInter
 {
     public function __construct(
         protected FieldTypeElementRegistry $fieldTypeRegistry,
-        protected FieldTypeApiPresenter $fieldTypeApiPresenter
+        protected FieldTypeApiPresenter $fieldTypeApiPresenter,
+        protected LegacyContext $context
     ) {
     }
 
@@ -32,13 +38,96 @@ class FieldController extends AbstractController implements EventSubscriberInter
         return new JsonResponse($data);
     }
 
+    public function searchEntitiesAction(): JsonResponse
+    {
+        $data = [
+            [
+                'slug' => 'product',
+                'label' => 'Product',
+                'getValuesUrl' => $this->generateUrl('prettyblocks_field_entities_get', ['entity' => 'product']),
+            ],
+            [
+                'slug' => 'category',
+                'label' => 'Category',
+                'getValuesUrl' => $this->generateUrl('prettyblocks_field_entities_get', ['entity' => 'category']),
+            ],
+            [
+                'slug' => 'cms_page',
+                'label' => 'CMS Page',
+                'getValuesUrl' => $this->generateUrl('prettyblocks_field_entities_get', ['entity' => 'cms_page']),
+            ],
+        ];
+
+        return new JsonResponse($data);
+    }
+
     public function getAction(string $idZone): JsonResponse
     {
         return new JsonResponse([]);
     }
 
-    public static function getSubscribedEvents()
+    public function getEntityAction(string $entity): JsonResponse
+    {
+        $entityClass = null;
+
+        switch ($entity) {
+            case 'product':
+                $entityClass = Product::class;
+                break;
+            case 'category':
+                $entityClass = Category::class;
+                break;
+            case 'cms_page':
+                $entityClass = CMS::class;
+                break;
+        }
+
+        if (null === $entityClass) {
+            return new JsonResponse(['error' => 'Entity not found'], JsonResponse::HTTP_NOT_FOUND);
+        }
+
+        $data = [];
+        $collection = new PrestaShopCollection($entityClass, $this->context->getContext()->language->id);
+
+        foreach ($collection as $objectModel) {
+            if ($objectModel instanceof CMS) {
+                $data[] = [
+                    'id' => $objectModel->id,
+                    'name' => $objectModel->meta_title,
+                ];
+            } else {
+                $data[] = [
+                    'id' => $objectModel->id,
+                    'name' => $objectModel->name,
+                ];
+            }
+        }
+
+        return new JsonResponse($data);
+    }
+
+    public static function getSubscribedEvents(): array
     {
         return [];
+    }
+
+    public function searchIconsAction(): JsonResponse
+    {
+        return new JsonResponse([
+            'tag' => 'Tag',
+            'charcoal_barbecue' => 'Barbecue',
+            'gas_barbecue' => 'Gas barbecue',
+            'plancha' => 'Plancha',
+            'outdoor_kitchen' => 'Outdoor kitchen',
+            'pizza_oven' => 'Pizza oven',
+            'pellets_barbecue' => 'Pellets barbecue',
+            'electric_barbecue' => 'Electric barbecue',
+            'brasero' => 'Brasero',
+            'smoker' => 'Smoker',
+            'accessories' => 'Accessories',
+            'spare_parts' => 'Spare parts',
+            'flag' => 'Flag',
+            'size' => 'Size',
+        ]);
     }
 }

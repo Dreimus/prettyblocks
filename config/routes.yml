@@ -12,9 +12,9 @@ prettyblocks_admin_edit:
   path: /prettyblocks/admin/edit
   methods: [ GET ]
   defaults:
-      _controller: PrestaSafe\PrettyBlocks\Controller\Admin\EditionController::editAction
-      _legacy_controller: PrettyBlocksAdminEdition
-      _legacy_link: PrettyBlocksAdminEdition
+    _controller: PrestaSafe\PrettyBlocks\Controller\Admin\EditionController::editAction
+    _legacy_controller: PrettyBlocksAdminEdition
+    _legacy_link: PrettyBlocksAdminEdition
 
 prettyblocks_zone_list:
   path: /prettyblocks/api/zones
@@ -64,4 +64,26 @@ prettyblocks_field_list:
     _legacy_controller: PrettyBlocksApiField
     _legacy_link: PrettyBlocksApiField
 
+prettyblocks_field_search_icons:
+  path: /prettyblocks/api/fields/search/icons
+  methods: [ GET ]
+  defaults:
+    _controller: PrestaSafe\PrettyBlocks\Controller\Api\FieldController:searchIconsAction
+    _legacy_controller: PrettyBlocksApiField
+    _legacy_link: PrettyBlocksApiField
 
+prettyblocks_field_search_entities:
+  path: /prettyblocks/api/fields/search/entities
+  methods: [ GET ]
+  defaults:
+    _controller: PrestaSafe\PrettyBlocks\Controller\Api\FieldController:searchEntitiesAction
+    _legacy_controller: PrettyBlocksApiField
+    _legacy_link: PrettyBlocksApiField
+
+prettyblocks_field_entities_get:
+  path: /prettyblocks/api/fields/search/entities/{entity}
+  methods: [ GET ]
+  defaults:
+    _controller: PrestaSafe\PrettyBlocks\Controller\Api\FieldController:getEntityAction
+    _legacy_controller: PrettyBlocksApiField
+    _legacy_link: PrettyBlocksApiField

@@ -45,6 +45,14 @@ export type PrimitiveLinkType = {
   href: string;
 };
 
+export type PrestashopEntitySelectorType = {
+  type: string
+  value: {
+    id: number,
+    label: string,
+  },
+};
+
 // TODO Fix this
 export type PrimitiveFileType = unknown;
 export type PrimitiveOembedType = unknown;
@@ -74,6 +82,7 @@ export interface PrimitiveFieldContentMap {
   [PrimitiveFieldType.MAP]: PrimitiveMapType;
   [PrimitiveFieldType.ICON]: PrimitiveIconType;
   [PrimitiveFieldType.LINK]: PrimitiveLinkType;
+  [PrimitiveFieldType.PRESTASHOP_ENTITY_SELECTOR]: PrestashopEntitySelectorType
 }
 
 export type PrimitiveFieldContent<T extends PrimitiveFieldType> = {

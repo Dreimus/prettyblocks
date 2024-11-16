@@ -44,6 +44,8 @@ class EditionController extends FrameworkBundleAdminController
                 'back_office' => $admin_link,
                 'front_office' => $shop_url,
                 'fields_list' => $this->get('router')->generate('prettyblocks_field_list'),
+                'fields_search_icons' => $this->get('router')->generate('prettyblocks_field_search_icons'),
+                'fields_search_entities' => $this->get('router')->generate('prettyblocks_field_search_entities'),
                 'zone_list' => $this->get('router')->generate('prettyblocks_zone_list'),
                 'media_upload' => $this->get('router')->generate('prettyblocks_media_upload'),
             ],
