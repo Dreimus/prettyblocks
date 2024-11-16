@@ -29,6 +29,7 @@ class NavigationMenu extends AbstractBlockFieldType
             (new TextPrimitiveFieldType())
                 ->setLabel('Menu button text')
                 ->setSlug('menu_button_text')
+                ->setDefaultValue('Tous les rayons')
                 ->setRequired(true),
             (new SidebarMenu())
                 ->setLabel('Sidebar Menu')

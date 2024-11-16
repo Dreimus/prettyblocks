@@ -28,7 +28,7 @@ class ExpandableMenuItem extends AbstractComponentFieldType
                 ->setSlug('menu_item_text')
                 ->setRequired(true),
             (new PrestashopEntitySelectorPrimitiveFieldType())
-                ->setLabel('Associated Category')
+                ->setLabel('Associated Entity')
                 ->setSlug('associated_category')
                 ->setRequired(true),
             (new SelectPrimitiveFieldType())
@@ -36,6 +36,10 @@ class ExpandableMenuItem extends AbstractComponentFieldType
                 ->setSlug('menu_item_icon')
                 ->setOptions($this->getIconChoices())
                 ->setRequired(false),
+            (new ExpandableMenuItem())
+                ->setLabel('Submenu')
+                ->setSlug('submenu')
+                ->setRepeatable(true),
         ]);
     }
 

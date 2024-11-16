@@ -11,6 +11,7 @@ use PrestaSafe\PrettyBlocks\Exception\CannotExecRegisterBlockHookException;
 use PrestaSafe\PrettyBlocks\Exception\InvalidElementRegistrationException;
 use PrestaSafe\PrettyBlocks\FieldType\Element\Block\BlockFieldTypeInterface;
 use PrestaSafe\PrettyBlocks\FieldType\Element\Block\NavigationMenu;
+use PrestaSafe\PrettyBlocks\FieldType\Element\Component\ComponentFieldTypeInterface;
 use PrestaSafe\PrettyBlocks\FieldType\Element\ElementFieldTypeInterface;
 use PrestaSafe\PrettyBlocks\FieldType\FieldTypeInterface;
 use PrestaShop\PrestaShop\Core\Exception\TypeException;
@@ -36,7 +37,7 @@ class FieldTypeElementRegistry
      *
      * @return FieldTypeElementRegistry
      */
-    public function add(string|FieldTypeInterface $fieldType): self
+    public function add(string|FieldTypeInterface $fieldType, int $depth = 0, ?FieldTypeInterface $parent = null ): self
     {
         if (!is_object($fieldType)) {
             // checking if the field type class exists and is a subclass of FieldTypeInterface
@@ -58,8 +59,15 @@ class FieldTypeElementRegistry
                 $this->fieldTypes->add($fieldType);
             }
 
+            // components are recursive so we must check depth limit
+            if (($fieldType instanceof ComponentFieldTypeInterface) && $depth > $fieldType->getDepth()) {
+                return $this;
+            }
             foreach ($fieldType->getFields() as $componentFieldType) {
-                $this->add($componentFieldType);
+                if ($parent && ($parent::class === $componentFieldType::class)) {
+                    ++$depth;
+                }
+                $this->add($componentFieldType, $depth, $fieldType);
             }
         }
 

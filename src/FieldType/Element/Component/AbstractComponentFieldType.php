@@ -9,6 +9,7 @@ use PrestaSafe\PrettyBlocks\FieldType\Element\AbstractElementFieldType;
 abstract class AbstractComponentFieldType extends AbstractElementFieldType implements ComponentFieldTypeInterface
 {
     protected bool $isRepeatable;
+    protected int $depth = 1;
     protected string $slug = 'undefined_component';
     protected string $template = 'module:prettyblocks/templates/element/component/undefined_component.tpl';
 
@@ -25,4 +26,17 @@ abstract class AbstractComponentFieldType extends AbstractElementFieldType imple
 
         return $this;
     }
+
+    public function getDepth(): int
+    {
+        return $this->depth;
+    }
+
+    public function setDepth(int $depth): AbstractComponentFieldType
+    {
+        $this->depth = $depth;
+        return $this;
+    }
+
+
 }

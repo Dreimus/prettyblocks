@@ -6,6 +6,8 @@ namespace PrestaSafe\PrettyBlocks\FieldType\Element\Component\Slider;
 
 use PrestaSafe\PrettyBlocks\Collection\FieldTypeCollection;
 use PrestaSafe\PrettyBlocks\FieldType\Element\Component\AbstractComponentFieldType;
+use PrestaSafe\PrettyBlocks\FieldType\Primitive\LinkPrimitiveFieldType;
+use PrestaSafe\PrettyBlocks\FieldType\Primitive\WysiwygPrimitiveFieldType;
 
 class TextSlider extends AbstractComponentFieldType
 {
@@ -14,21 +16,23 @@ class TextSlider extends AbstractComponentFieldType
 
     public function isRepeatable(): bool
     {
-        return false;
+        return true;
     }
 
     public function getFields(): FieldTypeCollection
     {
-        return new FieldTypeCollection([
-            (new TextSliderItem())
-                ->setLabel('Slides')
-                ->setSlug('slides')
-                ->setRequired(true),
-        ]);
+        return new FieldTypeCollection(
+            [
+                (new WysiwygPrimitiveFieldType())
+                    ->setLabel('Text')
+                    ->setSlug('text')
+                    ->setRequired(true),
+            ]
+        );
     }
 
     public function getDefaultLabel(): string
     {
-        return 'Text Slider';
+        return 'Slider';
     }
 }

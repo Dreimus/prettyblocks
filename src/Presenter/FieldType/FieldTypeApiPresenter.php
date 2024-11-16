@@ -5,13 +5,14 @@ declare(strict_types=1);
 namespace PrestaSafe\PrettyBlocks\Presenter\FieldType;
 
 use PrestaSafe\PrettyBlocks\Collection\FieldTypeCollection;
+use PrestaSafe\PrettyBlocks\FieldType\Element\Component\ComponentFieldTypeInterface;
 use PrestaSafe\PrettyBlocks\FieldType\Element\ElementFieldTypeInterface;
 use PrestaSafe\PrettyBlocks\FieldType\Primitive\PrimitiveFieldTypeInterface;
 use PrestaShop\PrestaShop\Adapter\Presenter\PresenterInterface;
 
 class FieldTypeApiPresenter implements PresenterInterface
 {
-    public function present($block): array
+    public function present($block, int $depth = 0, $parent = null): array
     {
         $formattedData = [
             'id' => $block->getId(),
@@ -32,18 +33,27 @@ class FieldTypeApiPresenter implements PresenterInterface
         if ($block instanceof ElementFieldTypeInterface) {
             $formattedData['repeatable'] = $block->isRepeatable();
             $formattedData['template'] = $block->getTemplate();
-            $formattedData['fields'] = $this->presentFields($block->getFields());
+
+            if ($block instanceof ComponentFieldTypeInterface && $parent && $parent::class === $block::class) {
+                $depth++;
+
+                if ($depth > $block->getDepth()) {
+                    return $formattedData;
+                }
+            }
+
+            $formattedData['fields'] = $this->presentFields($block->getFields(), $depth, $block);
         }
 
         return $formattedData;
     }
 
-    private function presentFields(FieldTypeCollection $elementClass): array
+    private function presentFields(FieldTypeCollection $elementClass, $depth = 0, $parent = null): array
     {
         $fields = [];
 
         foreach ($elementClass as $field) {
-            $fields[uniqid('', true)] = $this->present($field);
+            $fields[uniqid('', true)] = $this->present($field, $depth, $parent);
         }
 
         return $fields;

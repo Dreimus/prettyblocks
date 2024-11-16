@@ -11,4 +11,6 @@ interface ComponentFieldTypeInterface extends ElementFieldTypeInterface
     public function isRepeatable(): bool;
 
     public function setRepeatable(bool $repeatable): ComponentFieldTypeInterface;
+
+    public function getDepth(): int;
 }
