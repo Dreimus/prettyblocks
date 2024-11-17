@@ -23,11 +23,20 @@ class NavigationMenuFormatter implements FieldFormatterInterface
         $formattedFields = [];
         foreach ($fields as $field) {
 
-            match($field['slug']) {
-                'quick_menu' => $formattedFields['quick_menu'] = $this->simpleMenuFormatter->format($field),
-                'menu_button_text' => $formattedFields['menu_button_text'] = $field['content']['value'] ?? '',
-                'sidebar_menu' => $formattedFields['sidebar_menu'] = $this->sidebarMenuFormatter->format($field),
-            };
+            switch ($field['slug']) {
+                case 'quick_menu':
+                    $formattedFields['quick_menu'] = $this->simpleMenuFormatter->format($field);
+                    break;
+                case 'menu_button_text':
+                    $formattedFields['menu_button_text'] = $field['content']['value'] ?? '';
+                    break;
+                case 'sidebar_menu':
+                    $formattedFields['sidebar_menu'] = $this->sidebarMenuFormatter->format($field);
+                    break;
+                default:
+                    break;
+            }
+
         }
 
         return $formattedFields;

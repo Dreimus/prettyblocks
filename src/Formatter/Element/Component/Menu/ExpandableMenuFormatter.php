@@ -22,7 +22,7 @@ class ExpandableMenuFormatter implements FieldFormatterInterface
         $formattedExpandableMenu = [];
 
         foreach ($fields['fields'] as $expandableMenuItem) {
-            $formattedExpandableMenu['items'][] = $this->formatExpandableMenuItems($expandableMenuItem);
+            $formattedExpandableMenu['items'] = $this->formatExpandableMenuItems($expandableMenuItem);
         }
 
         return $formattedExpandableMenu;
@@ -41,6 +41,14 @@ class ExpandableMenuFormatter implements FieldFormatterInterface
                         break;
                     case 'associated_category':
                         $menuItem += $this->prestashopEntitySelectorFormatter->format($expandableMenuItemContentItem);
+                        break;
+                    case 'menu_item_icon':
+                        $menuItem['icon'] = $expandableMenuItemContentItem['content']['value'] ?? '';
+                        break;
+                    case 'submenu':
+                        if (isset($expandableMenuItemContentItem['sub_elements'])) {
+                            $menuItem['submenu'] = $this->formatExpandableMenuItems($expandableMenuItemContentItem);
+                        }
                         break;
                     default:
                         break;

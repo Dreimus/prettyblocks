@@ -29,7 +29,11 @@ class PrestashopEntitySelectorFormatter implements FieldFormatterInterface
         if ($prestashopEntity === 'product') {
             $product = (new Product($prestashopEntityId));
             $link = $product->getLink();
-            $label = $product->name[$this->context->getContext()->language->id];
+            if (is_array($product->name)) {
+                $label = $product->name[$this->context->getContext()->language->id];
+            } else {
+                $label = $product->name;
+            }
         } elseif ($prestashopEntity === 'category') {
             $category = new Category($prestashopEntityId);
             $link = $category->getLink();
