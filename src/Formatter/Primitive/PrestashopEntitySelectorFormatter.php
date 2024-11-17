@@ -38,10 +38,10 @@ class PrestashopEntitySelectorFormatter implements FieldFormatterInterface
             $category = new Category($prestashopEntityId);
             $link = $category->getLink();
             $label = $category->name[$this->context->getContext()->language->id];
-        } elseif ($prestashopEntity === 'cms') {
+        } elseif ($prestashopEntity === 'cms_page') {
             $cms = new CMS($prestashopEntityId);
             $this->context->getContext()->link->getCMSLink($cms);
-            $label = $cms->meta_title;
+            $label = $cms->meta_title[$this->context->getContext()->language->id];
         }
 
         $menuItem['link'] = $link;
