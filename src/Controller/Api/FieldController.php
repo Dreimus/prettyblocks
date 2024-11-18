@@ -141,20 +141,34 @@ class FieldController extends AbstractController implements EventSubscriberInter
     public function searchIconsAction(): JsonResponse
     {
         return new JsonResponse([
-            'tag' => 'Tag',
-            'charcoal_barbecue' => 'Barbecue',
-            'gas_barbecue' => 'Gas barbecue',
-            'plancha' => 'Plancha',
-            'outdoor_kitchen' => 'Outdoor kitchen',
-            'pizza_oven' => 'Pizza oven',
-            'pellets_barbecue' => 'Pellets barbecue',
-            'electric_barbecue' => 'Electric barbecue',
-            'brasero' => 'Brasero',
-            'smoker' => 'Smoker',
-            'accessories' => 'Accessories',
-            'spare_parts' => 'Spare parts',
-            'flag' => 'Flag',
-            'size' => 'Size',
+            'tag' => 'TWO COLOR ICON - Tag',
+            'charcoal_barbecue' => 'TWO COLOR ICON - Barbecue',
+            'gas_barbecue' => 'TWO COLOR ICON - Gas barbecue',
+            'plancha' => 'TWO COLOR ICON - Plancha',
+            'outdoor_kitchen' => 'TWO COLOR ICON - Outdoor kitchen',
+            'pizza_oven' => 'TWO COLOR ICON - Pizza oven',
+            'pellets_barbecue' => 'TWO COLOR ICON - Pellets barbecue',
+            'electric_barbecue' => 'TWO COLOR ICON - Electric barbecue',
+            'brasero' => 'TWO COLOR ICON - Brasero',
+            'smoker' => 'TWO COLOR ICON - Smoker',
+            'accessories' => 'TWO COLOR ICON - Accessories',
+            'spare_parts' => 'TWO COLOR ICON - Spare parts',
+            'flag' => 'TWO COLOR ICON - Flag',
+            'size' => 'TWO COLOR ICON - Size',
+            'headset_mic' => 'BLACK ICON - Headset mic',
+            'truck' => 'BLACK ICON - Truck',
+            'star' => 'BLACK ICON - Star',
+        ]);
+    }
+
+    public function searchRavipotesAction(): JsonResponse
+    {
+        return new JsonResponse([
+            'flag_france' => 'France',
+            'sitting' => 'Sitting',
+            'victory_sign' => 'Victory sign',
+            'with_barbecue' => 'With barbecue',
+            'with_laptop' => 'With laptop',
         ]);
     }
 }

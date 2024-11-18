@@ -95,7 +95,8 @@ class ZoneRenderer
     protected function formatBlock(Block $block, Smarty_Data $scope)
     {
         $renderingEvent = new ElementRenderingEvent(
-            $block
+            $block,
+            $scope
         );
 
         // we will trigger two events here, one for generic block rendering and one for the specific block
@@ -134,7 +135,7 @@ class ZoneRenderer
         foreach ($blocks as $block) {
             $formattedBlock = $this->formatBlock($block, $scope);
 
-            $this->smarty->assign('prettyblocks_generic_zone_block_' . $block->getSlug(), $formattedBlock);
+            $scope->assign('prettyblocks_generic_zone_block_' . $block->getSlug(), $formattedBlock);
         }
     }
 }

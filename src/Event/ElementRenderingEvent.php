@@ -3,6 +3,7 @@
 namespace PrestaSafe\PrettyBlocks\Event;
 
 use PrestaSafe\PrettyBlocks\Entity\Block;
+use Smarty_Data;
 use Symfony\Contracts\EventDispatcher\Event;
 
 class ElementRenderingEvent extends Event
@@ -12,7 +13,8 @@ class ElementRenderingEvent extends Event
     public const COMPONENT_RENDERING_PREFIX = 'prettyblocks.element.rendering.component.';
 
     public function __construct(
-        protected Block $block
+        protected Block $block,
+        protected Smarty_Data $scope
     ) {
     }
 
@@ -26,4 +28,17 @@ class ElementRenderingEvent extends Event
         $this->block = $block;
         return $this;
     }
+
+    public function getScope(): Smarty_Data
+    {
+        return $this->scope;
+    }
+
+    public function setScope(Smarty_Data $scope): ElementRenderingEvent
+    {
+        $this->scope = $scope;
+        return $this;
+    }
+
+
 }

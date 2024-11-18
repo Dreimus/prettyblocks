@@ -72,6 +72,14 @@ prettyblocks_field_search_icons:
     _legacy_controller: PrettyBlocksApiField
     _legacy_link: PrettyBlocksApiField
 
+prettyblocks_field_search_ravipotes:
+  path: /prettyblocks/api/fields/search/ravipotes
+  methods: [ GET ]
+  defaults:
+    _controller: PrestaSafe\PrettyBlocks\Controller\Api\FieldController:searchRavipotesAction
+    _legacy_controller: PrettyBlocksApiField
+    _legacy_link: PrettyBlocksApiField
+
 prettyblocks_field_search_entities:
   path: /prettyblocks/api/fields/search/entities
   methods: [ GET ]
