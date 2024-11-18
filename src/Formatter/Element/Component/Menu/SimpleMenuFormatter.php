@@ -7,7 +7,7 @@ namespace PrestaSafe\PrettyBlocks\Formatter\Element\Component\Menu;
 use Category;
 use CMS;
 use PrestaSafe\PrettyBlocks\Formatter\FieldFormatterInterface;
-use PrestaSafe\PrettyBlocks\Formatter\Primitive\PrestashopEntitySelectorFormatter;
+use PrestaSafe\PrettyBlocks\Formatter\Primitive\EntitySelectorFormatter;
 use PrestaShop\PrestaShop\Adapter\LegacyContext;
 use Product;
 
@@ -15,7 +15,7 @@ class SimpleMenuFormatter implements FieldFormatterInterface
 {
     public function __construct(
         protected LegacyContext $context,
-        protected PrestashopEntitySelectorFormatter $prestashopEntitySelectorFormatter
+        protected EntitySelectorFormatter $prestashopEntitySelectorFormatter
     ) {
     }
 

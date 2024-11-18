@@ -23,7 +23,7 @@ import WysiwygField from "./fields/WysiwygField.vue";
 import {useZoneStore} from "../../core-logic/store/zoneStore";
 import SwitchField from "./fields/SwitchField.vue";
 import TextAreaField from "./fields/TextAreaField.vue";
-import PrestashopEntitySelectorField from "./fields/PrestashopEntitySelectorField.vue";
+import EntitySelectorField from "./fields/EntitySelectorField.vue";
 
 const { field } = defineProps<{
   field: PrimitiveFieldContent<PrimitiveFieldType>;
@@ -51,7 +51,7 @@ const componentMap: ComponentMap<PrimitiveFieldType> = {
   [PrimitiveFieldType.LINK]: LinkField,
   [PrimitiveFieldType.URL]: UrlField,
   [PrimitiveFieldType.EMAIL]: EmailField,
-  [PrimitiveFieldType.PRESTASHOP_ENTITY_SELECTOR]: PrestashopEntitySelectorField,
+  [PrimitiveFieldType.ENTITY_SELECTOR]: EntitySelectorField,
 };
 </script>
 

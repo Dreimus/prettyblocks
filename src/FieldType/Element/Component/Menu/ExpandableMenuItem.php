@@ -6,7 +6,7 @@ namespace PrestaSafe\PrettyBlocks\FieldType\Element\Component\Menu;
 
 use PrestaSafe\PrettyBlocks\Collection\FieldTypeCollection;
 use PrestaSafe\PrettyBlocks\FieldType\Element\Component\AbstractComponentFieldType;
-use PrestaSafe\PrettyBlocks\FieldType\Primitive\PrestashopEntitySelectorPrimitiveFieldType;
+use PrestaSafe\PrettyBlocks\FieldType\Primitive\EntitySelectorPrimitiveFieldType;
 use PrestaSafe\PrettyBlocks\FieldType\Primitive\SelectPrimitiveFieldType;
 use PrestaSafe\PrettyBlocks\FieldType\Primitive\TextPrimitiveFieldType;
 
@@ -27,7 +27,7 @@ class ExpandableMenuItem extends AbstractComponentFieldType
                 ->setLabel('Menu item text')
                 ->setSlug('menu_item_text')
                 ->setRequired(true),
-            (new PrestashopEntitySelectorPrimitiveFieldType())
+            (new EntitySelectorPrimitiveFieldType())
                 ->setLabel('Associated Entity')
                 ->setSlug('associated_category')
                 ->setRequired(true),

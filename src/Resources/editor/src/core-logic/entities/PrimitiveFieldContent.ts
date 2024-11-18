@@ -45,12 +45,14 @@ export type PrimitiveLinkType = {
   href: string;
 };
 
-export type PrestashopEntitySelectorType = {
+export type EntitySelectorType = {
   type: string
   value: {
-    id: number,
-    label: string,
-  },
+    id?: number;
+    label: string;
+    name?: string;
+    href?: string;
+  };
 };
 
 // TODO Fix this
@@ -82,7 +84,7 @@ export interface PrimitiveFieldContentMap {
   [PrimitiveFieldType.MAP]: PrimitiveMapType;
   [PrimitiveFieldType.ICON]: PrimitiveIconType;
   [PrimitiveFieldType.LINK]: PrimitiveLinkType;
-  [PrimitiveFieldType.PRESTASHOP_ENTITY_SELECTOR]: PrestashopEntitySelectorType
+  [PrimitiveFieldType.ENTITY_SELECTOR]: EntitySelectorType
 }
 
 export type PrimitiveFieldContent<T extends PrimitiveFieldType> = {

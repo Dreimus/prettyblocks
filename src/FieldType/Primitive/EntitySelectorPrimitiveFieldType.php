@@ -7,10 +7,10 @@ namespace PrestaSafe\PrettyBlocks\FieldType\Primitive;
 use Context;
 use PrestaShopCollection;
 
-class PrestashopEntitySelectorPrimitiveFieldType extends AbstractPrimitiveFieldType
+class EntitySelectorPrimitiveFieldType extends AbstractPrimitiveFieldType
 {
     public function getType(): string
     {
-        return 'prestashop-entity-selector';
+        return 'entity-selector';
     }
 }

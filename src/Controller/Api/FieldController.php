@@ -6,11 +6,14 @@ namespace PrestaSafe\PrettyBlocks\Controller\Api;
 
 use Category;
 use CMS;
+use CMSCategory;
+use Manufacturer;
 use PrestaSafe\PrettyBlocks\FieldType\Registry\FieldTypeElementRegistry;
 use PrestaSafe\PrettyBlocks\Presenter\FieldType\FieldTypeApiPresenter;
 use PrestaShop\PrestaShop\Adapter\LegacyContext;
 use PrestaShopCollection;
 use Product;
+use Supplier;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -56,6 +59,21 @@ class FieldController extends AbstractController implements EventSubscriberInter
                 'label' => 'CMS Page',
                 'getValuesUrl' => $this->generateUrl('prettyblocks_field_entities_get', ['entity' => 'cms_page']),
             ],
+            [
+                'slug' => 'manufacturer',
+                'label' => 'Manufacturer',
+                'getValuesUrl' => $this->generateUrl('prettyblocks_field_entities_get', ['entity' => 'manufacturer']),
+            ],
+            [
+                'slug' => 'cms_category',
+                'label' => 'CMS Category',
+                'getValuesUrl' => $this->generateUrl('prettyblocks_field_entities_get', ['entity' => 'cms_category']),
+            ],
+            [
+                'slug' => 'supplier',
+                'label' => 'Supplier',
+                'getValuesUrl' => $this->generateUrl('prettyblocks_field_entities_get', ['entity' => 'supplier']),
+            ]
         ];
 
         return new JsonResponse($data);
@@ -79,6 +97,15 @@ class FieldController extends AbstractController implements EventSubscriberInter
                 break;
             case 'cms_page':
                 $entityClass = CMS::class;
+                break;
+            case 'manufacturer':
+                $entityClass = Manufacturer::class;
+                break;
+            case 'cms_category':
+                $entityClass = CMSCategory::class;
+                break;
+            case 'supplier':
+                $entityClass = Supplier::class;
                 break;
         }
 
