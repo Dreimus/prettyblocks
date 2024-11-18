@@ -24,6 +24,8 @@ import {useZoneStore} from "../../core-logic/store/zoneStore";
 import SwitchField from "./fields/SwitchField.vue";
 import TextAreaField from "./fields/TextAreaField.vue";
 import EntitySelectorField from "./fields/EntitySelectorField.vue";
+import IconField from "./fields/IconField.vue";
+import RavipoteField from "./fields/RavipoteField.vue";
 
 const { field } = defineProps<{
   field: PrimitiveFieldContent<PrimitiveFieldType>;
@@ -52,6 +54,8 @@ const componentMap: ComponentMap<PrimitiveFieldType> = {
   [PrimitiveFieldType.URL]: UrlField,
   [PrimitiveFieldType.EMAIL]: EmailField,
   [PrimitiveFieldType.ENTITY_SELECTOR]: EntitySelectorField,
+  [PrimitiveFieldType.ICON]: IconField,
+  [PrimitiveFieldType.RAVIPOTE]: RavipoteField,
 };
 </script>
 

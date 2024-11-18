@@ -6,6 +6,7 @@ namespace PrestaSafe\PrettyBlocks\FieldType\Element\Component\PreHeader;
 
 use PrestaSafe\PrettyBlocks\Collection\FieldTypeCollection;
 use PrestaSafe\PrettyBlocks\FieldType\Element\Component\AbstractComponentFieldType;
+use PrestaSafe\PrettyBlocks\FieldType\Primitive\IconPrimitiveFieldType;
 use PrestaSafe\PrettyBlocks\FieldType\Primitive\LinkPrimitiveFieldType;
 use PrestaSafe\PrettyBlocks\FieldType\Primitive\SelectPrimitiveFieldType;
 use PrestaSafe\PrettyBlocks\FieldType\Primitive\WysiwygPrimitiveFieldType;
@@ -23,10 +24,9 @@ class PreHeaderReassurances extends AbstractComponentFieldType
     public function getFields(): FieldTypeCollection
     {
         return new FieldTypeCollection([
-            (new SelectPrimitiveFieldType())
+            (new IconPrimitiveFieldType())
                 ->setLabel('Icon')
                 ->setSlug('icon')
-                ->setOptions($this->getIconChoices())
                 ->setRequired(false),
             (new WysiwygPrimitiveFieldType())
                 ->setLabel('Reassurance Description')
@@ -40,12 +40,4 @@ class PreHeaderReassurances extends AbstractComponentFieldType
         return 'Reassurance';
     }
 
-    protected function getIconChoices(): array
-    {
-        return [
-            'truck' => 'Truck',
-            'star' => 'Star',
-            'headset_mic' => 'Headset Mic',
-        ];
-    }
 }

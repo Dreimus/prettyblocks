@@ -28,6 +28,9 @@ class SidebarMenuFormatter implements FieldFormatterInterface
                 case 'sidebar_footer_menu':
                     $formattedSidebarMenu['sidebar_footer_menu'] = $this->simpleMenuFormatter->format($sidebarMenuContent);
                     break;
+                case 'footer_ravipote':
+                    $formattedSidebarMenu['footer_ravipote'] = $sidebarMenuContent['content']['value']?? '';
+                    break;
                 default:
                     break;
             }

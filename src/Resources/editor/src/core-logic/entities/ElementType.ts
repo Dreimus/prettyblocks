@@ -20,6 +20,7 @@ export enum PrimitiveFieldType {
   ICON = "icon",
   LINK = "link",
   ENTITY_SELECTOR = "entity-selector",
+  RAVIPOTE = "ravipote",
 }
 
 export enum ElementType {

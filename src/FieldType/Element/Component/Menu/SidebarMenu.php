@@ -6,6 +6,7 @@ namespace PrestaSafe\PrettyBlocks\FieldType\Element\Component\Menu;
 
 use PrestaSafe\PrettyBlocks\Collection\FieldTypeCollection;
 use PrestaSafe\PrettyBlocks\FieldType\Element\Component\AbstractComponentFieldType;
+use PrestaSafe\PrettyBlocks\FieldType\Primitive\RavipotePrimitiveFieldType;
 
 class SidebarMenu extends AbstractComponentFieldType
 {
@@ -27,6 +28,10 @@ class SidebarMenu extends AbstractComponentFieldType
             (new SimpleMenu())
                 ->setLabel('Sidebar footer menu')
                 ->setSlug('sidebar_footer_menu')
+                ->setRequired(true),
+            (new RavipotePrimitiveFieldType())
+                ->setLabel('Footer RaviPote')
+                ->setSlug('footer_ravipote')
                 ->setRequired(true),
         ]);
     }
