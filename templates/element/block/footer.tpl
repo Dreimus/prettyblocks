@@ -1,2 +1,1 @@
-{$fields|print_r}
-{debug}
+{include file='components/footer.tpl'}

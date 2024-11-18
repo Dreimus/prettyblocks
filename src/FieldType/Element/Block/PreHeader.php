@@ -7,7 +7,7 @@ namespace PrestaSafe\PrettyBlocks\FieldType\Element\Block;
 use PrestaSafe\PrettyBlocks\Collection\FieldTypeCollection;
 use PrestaSafe\PrettyBlocks\Entity\Block\Block\GenericBlock;
 use PrestaSafe\PrettyBlocks\FieldType\Element\Component\PreHeader\PreHeaderReassurances;
-use PrestaSafe\PrettyBlocks\FieldType\Element\Component\PreHeader\PreHeaderShops;
+use PrestaSafe\PrettyBlocks\FieldType\Element\Component\ShopsListing;
 use PrestaSafe\PrettyBlocks\FieldType\Primitive\TextPrimitiveFieldType;
 
 class PreHeader extends AbstractBlockFieldType
@@ -27,7 +27,7 @@ class PreHeader extends AbstractBlockFieldType
                 ->setSlug('label_all_shops')
                 ->setDefaultValue('Tous nos magasins')
                 ->setRequired(true),
-            (new PreHeaderShops())
+            (new ShopsListing())
                 ->setLabel('Shops')
                 ->setSlug('shops')
                 ->setRequired(true),

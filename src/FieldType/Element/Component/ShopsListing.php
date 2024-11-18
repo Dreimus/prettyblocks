@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace PrestaSafe\PrettyBlocks\FieldType\Element\Component\PreHeader;
+namespace PrestaSafe\PrettyBlocks\FieldType\Element\Component;
 
 use PrestaSafe\PrettyBlocks\Collection\FieldTypeCollection;
 use PrestaSafe\PrettyBlocks\FieldType\Element\Component\AbstractComponentFieldType;
 use PrestaSafe\PrettyBlocks\FieldType\Primitive\LinkPrimitiveFieldType;
 use PrestaSafe\PrettyBlocks\FieldType\Primitive\SelectPrimitiveFieldType;
 
-class PreHeaderShops extends AbstractComponentFieldType
+class ShopsListing extends AbstractComponentFieldType
 {
-    protected string $slug = 'pre_header_shops';
-    protected string $template = 'module:prettyblocks/templates/element/component/pre_header/pre_header_shops.tpl';
+    protected string $slug = 'shop_listing';
+    protected string $template = 'module:prettyblocks/templates/element/component/shop_listing.tpl';
 
     public function isRepeatable(): bool
     {
@@ -45,10 +45,15 @@ class PreHeaderShops extends AbstractComponentFieldType
     {
         return [
             'raviday_jardin' => 'Raviday Jardin',
+            'raviday_jardin-dark' => '[DARK] - Raviday Jardin',
             'raviday_matelas' => 'Raviday Matelas',
+            'raviday_matelas-dark' => '[DARK] - Raviday Matelas',
             'raviday_piscine' => 'Raviday Piscine',
+            'raviday_piscine-dark' => '[DARK] - Raviday Piscine',
             'raviday_barbecue' => 'Raviday Barbecue',
+            'raviday_barbecue-dark' => '[DARK] - Raviday Barbecue',
             'raviday_allemagne' => 'Raviday Allemagne',
+            'raviday_allemagne-dark' => '[DARK] - Raviday Allemagne',
         ];
     }
 }

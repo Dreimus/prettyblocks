@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace PrestaSafe\PrettyBlocks\FieldType\Element\Block;
 
 use PrestaSafe\PrettyBlocks\Collection\FieldTypeCollection;
-use PrestaSafe\PrettyBlocks\Entity\Block\Block\GenericBlock;
+use PrestaSafe\PrettyBlocks\FieldType\Element\Component\Reassurance\Reassurance;
+use PrestaSafe\PrettyBlocks\FieldType\Element\Component\ShopsListing;
 use PrestaSafe\PrettyBlocks\FieldType\Primitive\TextAreaPrimitiveFieldType;
 use PrestaSafe\PrettyBlocks\FieldType\Primitive\TextPrimitiveFieldType;
+use PrestaSafe\PrettyBlocks\FieldType\Primitive\WysiwygPrimitiveFieldType;
 
 class Footer extends AbstractBlockFieldType
 {
@@ -22,7 +24,11 @@ class Footer extends AbstractBlockFieldType
     public function getFields(): FieldTypeCollection
     {
         return new FieldTypeCollection([
-            (new TextAreaPrimitiveFieldType())
+            (new Reassurance())
+                ->setLabel('Reassurance component')
+                ->setSlug('reassurance_component')
+                ->setRequired(true),
+            (new WysiwygPrimitiveFieldType())
                 ->setLabel('Seo description')
                 ->setSlug('seo_description')
                 ->setRequired(true),
@@ -33,6 +39,10 @@ class Footer extends AbstractBlockFieldType
             (new TextAreaPrimitiveFieldType())
                 ->setSlug('raviday_plus_content')
                 ->setLabel('Raviday + - Content')
+                ->setRequired(true),
+            (new ShopsListing())
+                ->setLabel('Shops')
+                ->setSlug('shops')
                 ->setRequired(true),
         ]);
     }
