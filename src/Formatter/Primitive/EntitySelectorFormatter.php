@@ -51,7 +51,7 @@ class EntitySelectorFormatter implements FieldFormatterInterface
             $label = $category->name[$this->context->getContext()->language->id];
         } elseif ($entity === 'cms_page') {
             $cms = new CMS($entityId);
-            $this->context->getContext()->link->getCMSLink($cms);
+            $link = $this->context->getContext()->link->getCMSLink($cms);
             $label = $cms->meta_title[$this->context->getContext()->language->id];
         } elseif ($entity === 'manufacturer') {
             $manufacturer = new Manufacturer($entityId);
